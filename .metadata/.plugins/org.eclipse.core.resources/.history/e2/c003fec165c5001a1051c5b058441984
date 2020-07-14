@@ -1,0 +1,18 @@
+#ifndef _LED_CONTROL_H_
+#define _LED_CONTROL_H_
+
+// MACROS
+#define ON_RLED1()				HAL_GPIO_WritePin(MC_RLED1_GPIO_Port, MC_RLED1_Pin, GPIO_PIN_SET);
+#define OFF_RLED1()				HAL_GPIO_WritePin(MC_RLED1_GPIO_Port, MC_RLED1_Pin, GPIO_PIN_RESET);
+#define ON_GLED1()				HAL_GPIO_WritePin(MC_GLED1_GPIO_Port, MC_GLED1_Pin, GPIO_PIN_SET);
+#define OFF_GLED1()				HAL_GPIO_WritePin(MC_GLED1_GPIO_Port, MC_GLED1_Pin, GPIO_PIN_RESET);
+#define GREEN_LED3_TOGGLE() 	HAL_GPIO_TogglePin(MC_GLED3_GPIO_Port, MC_GLED3_Pin);
+
+
+
+
+
+#endif
+/* need to test all LED for BOTH COLORS RED AND GREEN
+ * gpioSET gpioRESET gpioTOGGLE
+ */

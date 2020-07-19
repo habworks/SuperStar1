@@ -1,0 +1,7 @@
+NV_Memory.c:53:8:writeBasicByteNVM	0	static
+NV_Memory.c:145:9:readByteNVM	0	static
+NV_Memory.c:236:7:readFloatNVM	24	static
+NV_Memory.c:276:15:unlockNVM	0	static
+NV_Memory.c:313:15:lockNVM	0	static
+NV_Memory.c:100:8:writeByteNVM	16	static
+NV_Memory.c:180:8:writeFloatNVM	24	static

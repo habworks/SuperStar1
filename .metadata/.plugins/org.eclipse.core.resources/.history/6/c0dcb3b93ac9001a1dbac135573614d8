@@ -1,0 +1,56 @@
+/** ****************************************************************************************************
+ * @file 			NV Memory.H
+ * @brief			This is the Header file used to support NV_Memory.C
+ * ****************************************************************************************************
+ * @author			Hab S. Collector \n
+ * Last Edited By:	Hab S. Collector \n
+ *
+ * @date			7/18/20 \n
+ * Last Edit Date:  7/18/20 \n
+ * @version       	See Main.C
+ *
+ * @param Development_Environment \n
+ * Hardware:		ST32LM082 \n
+ * IDE:             Atollic TrueStudio, VER 9.3.0 \n
+ * Compiler:        GCC \n
+ * Editor Settings: 1 Tab = 4 Spaces, Recommended Courier New 11
+ *
+ * @note            This file supports the use of Non Volatile memory on STM32L010C6
+ *                  This is a category 2 device as defined in ST Manual RM0451
+ *                  See section 4.1, page 45 for memory map information
+ * 					This is an embedded application
+ *		            It will be necessary to consult the reference documents before you can review this code.
+ *                  It is suggested that the documents be reviewed in the order shown.
+ *			          SuperStar Technical Manual
+ *				      SuperStar User Manual
+ *
+ * @copyright		IMR Engineering
+ * **************************************************************************************************** */
+
+#ifndef _NV_MEMORY_H_
+#define _NV_MEMORY_H_
+
+
+// DEFINES: MEMORY
+#define	DATA_EEPROM_ADDRESS			((uint32_t)0x08080000)
+#define SIZE_OF_EEPROM				((uint32_t)0x0100)
+// DEFINES: TEST
+#define MEMORY_OFFSET_STOP_DISTANCE				0
+#define MEMORY_OFFSET_ADC_VREF					MEMORY_OFFSET_STOP_DISTANCE + sizeof(float)
+#define MEMORY_OFFSET_DIVIDER_RATIO				MEMORY_OFFSET_ADC_VREF + sizeof(float)
+
+
+// TYPEDEFS AND ENUM
+typedef union
+{
+	uint8_t		Byte[4];
+	float		Float;
+} Type_FloatAsByteValue;
+
+
+// FUNCTION PROTOTYPES
+bool_t writeByteNVM(uint32_t ByteAddressOffset, uint8_t ByteValue);
+uint8_t readByteNVM(uint32_t ByteAddressOffset);
+
+
+#endif

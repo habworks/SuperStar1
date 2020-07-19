@@ -1,0 +1,77 @@
+/** ****************************************************************************************************
+ * @file 			MainSupport.h
+ * @brief			This is the Header file used to support MainSupport.C
+ * ****************************************************************************************************
+ * @author			Hab S. Collector \n
+ * Last Edited By:	Hab S. Collector \n
+ *
+ * @date			7/19/20 \n
+ * Last Edit Date:  7/19/20 \n
+ * @version       	See Main.C
+ *
+ * @param Development_Environment \n
+ * Hardware:		ST32LM082 \n
+ * IDE:             Atollic TrueStudio, VER 9.3.0 \n
+ * Compiler:        GCC \n
+ * Editor Settings: 1 Tab = 4 Spaces, Recommended Courier New 11
+ *
+ * @note            This file is intended to make integration to the CubeMx generated main.c file easier and cleaner
+ *                  The CubeMx generated main.c file function main is edited to include just 3 items:
+ *                  include MainSupport.h, functions init_main, and main_while_loop
+ *
+ * 					This is an embedded application
+ *		            It will be necessary to consult the reference documents before you can review this code.
+ *                  It is suggested that the documents be reviewed in the order shown.
+ *			          SuperStar Technical Manual
+ *				      SuperStar User Manual
+ *
+ * @copyright		IMR Engineering
+ * **************************************************************************************************** */
+
+#ifndef _MAIN_SUPPORT_H_
+#define _MAIN_SUPPORT_H_
+
+#include "main.h"
+#include "stdint.h"
+
+
+// DEFINES
+#ifdef FALSE
+#warning Trinks & Hab build warning: Note FALSE has already been defined - check previous definition
+#endif
+#ifdef TRUE
+#warning Trinks & Hab build warning: Note TRUE has already been defined - check previous definition
+#endif
+
+
+// TYPEDEFS AND ENUMS
+typedef _Bool bool;
+
+#ifndef bool_t
+	#ifdef FALSE
+		#undef FALSE
+	#endif
+	#ifdef TRUE
+		#undef TRUE
+	#endif
+typedef enum
+{
+	FALSE = 0,
+	TRUE
+}bool_t;
+#endif
+
+
+
+#endif
+
+
+
+
+
+
+// FUNCTION PROTOTYPES
+void main_Init(void);
+void main_WhileLoop(void);
+
+#endif

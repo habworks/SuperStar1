@@ -35,9 +35,9 @@ void MX_ADC_Init(void)
   */
   hadc.Instance = ADC1;
   hadc.Init.OversamplingMode = DISABLE;
-  hadc.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
-  hadc.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc.Init.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV4;
+  hadc.Init.Resolution = ADC_RESOLUTION_10B;
+  hadc.Init.SamplingTime = ADC_SAMPLETIME_160CYCLES_5;
   hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
   hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc.Init.ContinuousConvMode = DISABLE;
@@ -46,7 +46,7 @@ void MX_ADC_Init(void)
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc.Init.DMAContinuousRequests = DISABLE;
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc.Init.LowPowerAutoWait = DISABLE;
   hadc.Init.LowPowerFrequencyMode = DISABLE;
   hadc.Init.LowPowerAutoPowerOff = DISABLE;

@@ -1,0 +1,17 @@
+#Ignore the Debug Folder and everything in it
+/Debug/*
+
+#Ignore these specific file types
+*.rar
+*.o
+*.d
+*.crf
+*.htm
+*.dep
+*.map
+*.bak
+*.axf
+*.lnp
+*.lst
+*.ini
+*.hex

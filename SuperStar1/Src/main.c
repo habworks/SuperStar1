@@ -96,9 +96,62 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+
+
+
+
   while(1)
   {
+	  DIG_ONE_A();
+	  DIG_TENS_G();
+	  GPIO_PinState SwitchState;
+	  SwitchState = HAL_GPIO_ReadPin(SW_Zero_GPIO_Port, SW_Zero_Pin);
+	  if(SwitchState == GPIO_PIN_SET)
+		{
+		  ON_RLED1();
+		}
+	  else
+		{
+		  OFF_RLED1();
+		}
+
+	  DIG_ONE_A();
+	  DIG_ONE_B();
+	  DIG_ONE_C();
+	  DIG_ONE_D();
+	  DIG_ONE_E();
+	  DIG_ONE_F();
+	  DIG_ONE_G();
+	  DIG_DP();
+	  DIG_TENS_A();
+	  DIG_TENS_B();
+	  DIG_TENS_C();
+	  DIG_TENS_C();
+	  DIG_TENS_D();
+	  DIG_TENS_E();
+	  DIG_TENS_F();
+	  DIG_TENS_G();
+	  //ALL SEGEMENTS + DP SHOULD BE ON//
+	  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
+	 		  {
+	 			  DummyVar++;
+	 		  }
+	  OFF_DIG_ONE_A();
+	  OFF_DIG_ONE_B();
+	  OFF_DIG_ONE_C();
+	  OFF_DIG_ONE_D();
+	  OFF_DIG_ONE_E();
+	  OFF_DIG_ONE_F();
+	  OFF_DIG_ONE_G();
+	  OFF_DIG_TENS_A();
+	  OFF_DIG_TENS_B();
+	  OFF_DIG_TENS_C();
+	  OFF_DIG_TENS_D();
+	  OFF_DIG_TENS_E();
+	  OFF_DIG_TENS_F();
+	  OFF_DIG_TENS_G();
+	 //ALL SGEMENTS SHOULD BE OFF//
+
 
 
 	  ON_RLED1();
@@ -123,8 +176,8 @@ int main(void)
 	  OFF_RLED7();
 	  OFF_RLED8();
 	  //ALL RED LEDs SHOULD BE OFF//
-
 	  //NEXT COLOR//
+
 	  ON_GLED1();
 	  ON_GLED2();
 	  ON_GLED3();
@@ -133,8 +186,6 @@ int main(void)
 	  ON_GLED6();
 	  ON_GLED7();
 	  ON_GLED8();
-
-
 	  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
 			  {
 				  DummyVar++;
@@ -147,8 +198,11 @@ int main(void)
 	  OFF_GLED6();
 	  OFF_GLED7();
 	  OFF_GLED8();
+ //ALL GREEN LEDs SHOULD BE OFF//
 
-	  //ALL GREEN LEDs SHOULD BE OFF//
+
+
+
 
     /* USER CODE END WHILE */
 

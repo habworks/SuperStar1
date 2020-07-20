@@ -87,9 +87,9 @@
     </link>
 		
 	<link>
-			<name>Application</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link>
     <link>
 			<name>Application/User</name>
@@ -117,9 +117,9 @@
 			<location>PARENT-2-PROJECT_LOC/Src/stm32l0xx_hal_msp.c</location>
 		</link>
     <link>
-			<name>Drivers</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link>
     <link>
 			<name>Drivers/STM32L0xx_HAL_Driver</name>
@@ -223,5 +223,13 @@
       <name>Drivers/STM32L0xx_HAL_Driver/stm32l0xx_hal_adc_ex.c</name>
       <type>1</type>
       <location>PARENT-2-PROJECT_LOC/Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_adc_ex.c</location>
+    </link><link>
+      <name>Application</name>
+      <type>2</type>
+      <locationURI>virtual:/virtual</locationURI>
+    </link><link>
+      <name>Drivers</name>
+      <type>2</type>
+      <locationURI>virtual:/virtual</locationURI>
     </link></linkedResources>
 </projectDescription>

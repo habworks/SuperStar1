@@ -25,7 +25,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include"MainSupport.h"
+/*
 #include "LED_Control.h"
+#include "BatteryMonitor.h"
+#include "stm32l0xx_hal_adc_ex.h"
+*/
 
 /* USER CODE END Includes */
 
@@ -90,8 +95,9 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC_Init();
   /* USER CODE BEGIN 2 */
-  volatile uint32_t DummyVar = 0;
-  volatile uint32_t FullCount = 200000;
+  main_Init();
+
+  //while(HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED) != HAL_OK);
 
   /* USER CODE END 2 */
 
@@ -102,107 +108,7 @@ int main(void)
 
   while(1)
   {
-	  DIG_ONE_A();
-	  DIG_TENS_G();
-	  GPIO_PinState SwitchState;
-	  SwitchState = HAL_GPIO_ReadPin(SW_Zero_GPIO_Port, SW_Zero_Pin);
-	  if(SwitchState == GPIO_PIN_SET)
-		{
-		  ON_RLED1();
-		}
-	  else
-		{
-		  OFF_RLED1();
-		}
-
-	  DIG_ONE_A();
-	  DIG_ONE_B();
-	  DIG_ONE_C();
-	  DIG_ONE_D();
-	  DIG_ONE_E();
-	  DIG_ONE_F();
-	  DIG_ONE_G();
-	  DIG_DP();
-	  DIG_TENS_A();
-	  DIG_TENS_B();
-	  DIG_TENS_C();
-	  DIG_TENS_C();
-	  DIG_TENS_D();
-	  DIG_TENS_E();
-	  DIG_TENS_F();
-	  DIG_TENS_G();
-	  //ALL SEGEMENTS + DP SHOULD BE ON//
-	  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-	 		  {
-	 			  DummyVar++;
-	 		  }
-	  OFF_DIG_ONE_A();
-	  OFF_DIG_ONE_B();
-	  OFF_DIG_ONE_C();
-	  OFF_DIG_ONE_D();
-	  OFF_DIG_ONE_E();
-	  OFF_DIG_ONE_F();
-	  OFF_DIG_ONE_G();
-	  OFF_DIG_TENS_A();
-	  OFF_DIG_TENS_B();
-	  OFF_DIG_TENS_C();
-	  OFF_DIG_TENS_D();
-	  OFF_DIG_TENS_E();
-	  OFF_DIG_TENS_F();
-	  OFF_DIG_TENS_G();
-	 //ALL SGEMENTS SHOULD BE OFF//
-
-
-
-	  ON_RLED1();
-	  ON_RLED2();
-	  ON_RLED3();
-	  ON_RLED4();
-	  ON_RLED5();
-	  ON_RLED6();
-	  ON_RLED7();
-	  ON_RLED8();
-	  //ALL RED SHOULD BE ON//
-  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-		  {
-			  DummyVar++;
-		  }
-	  OFF_RLED1();
-	  OFF_RLED2();
-	  OFF_RLED3();
-	  OFF_RLED4();
-	  OFF_RLED5();
-	  OFF_RLED6();
-	  OFF_RLED7();
-	  OFF_RLED8();
-	  //ALL RED LEDs SHOULD BE OFF//
-	  //NEXT COLOR//
-
-	  ON_GLED1();
-	  ON_GLED2();
-	  ON_GLED3();
-	  ON_GLED4();
-	  ON_GLED5();
-	  ON_GLED6();
-	  ON_GLED7();
-	  ON_GLED8();
-	  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-			  {
-				  DummyVar++;
-			  }
-	  OFF_GLED1();
-	  OFF_GLED2();
-	  OFF_GLED3();
-	  OFF_GLED4();
-	  OFF_GLED5();
-	  OFF_GLED6();
-	  OFF_GLED7();
-	  OFF_GLED8();
- //ALL GREEN LEDs SHOULD BE OFF//
-
-
-
-
+	  main_WhileLoop();
 
     /* USER CODE END WHILE */
 
@@ -225,10 +131,9 @@ void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = 0;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -238,7 +143,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;

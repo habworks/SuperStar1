@@ -1,3 +1,4 @@
+
 #ifndef _LED_CONTROL_H_
 #define _LED_CONTROL_H_
 
@@ -9,7 +10,7 @@
 
 #define ON_RLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_SET);
 #define OFF_RLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_RESET);
-#define ON_GLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_SET);
+#define ON_GLED2()				HAL_GPIO_WritePin(MC_GLED2_GPIO_Port, MC_GLED2_Pin, GPIO_PIN_SET);
 #define OFF_GLED2()				HAL_GPIO_WritePin(MC_GLED2_GPIO_Port, MC_GLED2_Pin, GPIO_PIN_RESET);
 
 #define ON_RLED3()				HAL_GPIO_WritePin(MC_RLED3_GPIO_Port, MC_RLED3_Pin, GPIO_PIN_SET);
@@ -47,6 +48,7 @@
 #define SWITCH_LED_ON()			HAL_GPIO_ReadPin(SW_Zero_GPIO_Port, SW_Zero_Pin);
 
 ///
+
 
 #define DIG_ONE_A()				HAL_GPIO_WritePin(MC_SEG_7A1_GPIO_Port, MC_SEG_7A1_Pin, GPIO_PIN_SET);
 #define OFF_DIG_ONE_A()			HAL_GPIO_WritePin(MC_SEG_7A1_GPIO_Port, MC_SEG_7A1_Pin, GPIO_PIN_RESET);
@@ -91,6 +93,10 @@
 
 #define DIG_TENS_G()			HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_SET);
 #define OFF_DIG_TENS_G()		HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_RESET);
+
+// FUNCTION PROTOTYPES
+void init_OSC32_InOutAsGPIO();
+
 
 
 #endif

@@ -15,3 +15,5 @@ SuperStar1/Debug/*
 *.lst
 *.ini
 *.hex
+*.xml
+*.cproject

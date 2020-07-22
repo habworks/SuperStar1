@@ -1,3 +1,4 @@
+
 #ifndef _LED_CONTROL_H_
 #define _LED_CONTROL_H_
 
@@ -9,7 +10,7 @@
 
 #define ON_RLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_SET);
 #define OFF_RLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_RESET);
-#define ON_GLED2()				HAL_GPIO_WritePin(MC_RLED2_GPIO_Port, MC_RLED2_Pin, GPIO_PIN_SET);
+#define ON_GLED2()				HAL_GPIO_WritePin(MC_GLED2_GPIO_Port, MC_GLED2_Pin, GPIO_PIN_SET);
 #define OFF_GLED2()				HAL_GPIO_WritePin(MC_GLED2_GPIO_Port, MC_GLED2_Pin, GPIO_PIN_RESET);
 
 #define ON_RLED3()				HAL_GPIO_WritePin(MC_RLED3_GPIO_Port, MC_RLED3_Pin, GPIO_PIN_SET);
@@ -46,7 +47,8 @@
 #define GREEN_LED3_TOGGLE() 	HAL_GPIO_TogglePin(MC_GLED3_GPIO_Port, MC_GLED3_Pin);
 
 
-
+// FUNCTION PROTOTYPES
+void init_OSC32_InOutAsGPIO();
 
 
 #endif

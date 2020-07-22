@@ -58,7 +58,7 @@
 #endif
 // DEFINES: MISC
 #define ROUND_UP	(0.5)
-#define LOAD_DEFAULT_CAL_VALUE
+#define _LOAD_DEFAULT_CAL_VALUE
 
 
 // TYPEDEFS AND ENUMS

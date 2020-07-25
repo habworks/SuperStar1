@@ -57,7 +57,9 @@
 	#define true 1
 #endif
 // DEFINES: MISC
-#define ROUND_UP	(0.5)
+#define PERCENT_100		(100.0)
+#define ROUND_UP_BY_ONE	(0.5)
+#define ROUND_UP_BY_TEN (10.0)
 #define _LOAD_DEFAULT_CAL_VALUE
 
 
@@ -80,16 +82,18 @@ typedef enum
 
 typedef struct
 {
-	bool_t		ADC_CalValuesLoaded;	// ADC Calibration Values for Divider and Voltage Reference are loaded
-	bool_t		ZeroOffsetLoaded;		// Zero Offset Loaded
+	bool_t		ADC_CalValuesLoaded;		// ADC Calibration Values for Divider and Voltage Reference are loaded
+	bool_t		ZeroOffsetLoaded;			// Zero Offset Loaded
 }Type_InitTest;
 
 typedef struct
 {
-	Type_InitTest	InitTest;
+	volatile uint32_t		MiliSecondCounter;		// Used by TIM21 IRQ to create delay
+	volatile float			LED_DutyCylcePercent;	// Duty Cycle LED should run at
 	float			ZeroOffset;				// Value measured in feet
 	float			ADC_DividerRatio;		// Ratio of the ADC Battery Voltage Diver
 	float			ADC_VDDA_Vref;			// Voltage Reference of ADC VDDA Voltage Reference
+	Type_InitTest	InitTest;
 }Type_SuperStarStatus;
 
 

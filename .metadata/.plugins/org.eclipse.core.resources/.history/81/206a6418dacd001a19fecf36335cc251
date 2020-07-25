@@ -1,0 +1,50 @@
+
+
+
+#include "Timers.h"
+#include "MainSupport.h"
+#include "LED_Control.h"
+#include "lptim.h"
+#include "tim.h"
+
+
+extern Type_SuperStarStatus SuperStarStatus;
+
+
+void callbackLPTIM1_IRQ(void)
+{
+	HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+}
+
+
+void callbackTimer2_IRQ(void)
+{
+	volatile static uint8_t PWM_OnCount = 0;
+	volatile static uint8_t PWM_TotalCount = 0;
+	volatile uint8_t PWM_AsCount = (uint8_t)((SuperStarStatus.LED_DutyCylcePercent + ROUND_UP) / TIMER1_PWM_PERIOD_COUNT);
+
+	//HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+
+	PWM_OnCount++;
+	PWM_TotalCount++;
+
+	if (PWM_OnCount <= PWM_AsCount)
+		HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_SET);
+	else
+		HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_RESET);
+
+	if (PWM_OnCount >= TIMER1_PWM_PERIOD_COUNT)
+	{
+		PWM_OnCount = 0;
+		PWM_TotalCount = 0;
+	}
+
+}
+
+
+void HAL_TIM_PeriodElapsedCallack(TIM_HandleTypeDef &htim2)
+{
+
+	HAL_GPIO_TogglePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin);
+
+}

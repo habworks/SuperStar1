@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Sens_"/>
 			<item value="RCC_LSEConfig"/>
 			<item value="Sens_Echo"/>
 			<item value="stm32l010"/>
@@ -19,7 +20,7 @@
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="890" key="DIALOG_X_ORIGIN"/>
-		<item value="304" key="DIALOG_Y_ORIGIN"/>
+		<item value="1289" key="DIALOG_X_ORIGIN"/>
+		<item value="234" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

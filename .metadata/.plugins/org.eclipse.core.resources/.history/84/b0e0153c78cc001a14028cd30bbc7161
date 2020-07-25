@@ -1,0 +1,12 @@
+
+
+
+#include "Timers.h"
+#include "MainSupport.h"
+#include "lptim.h"
+
+
+void lowPowerTimerIRQ_CallBack(void)
+{
+	HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+}

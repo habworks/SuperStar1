@@ -22,6 +22,7 @@
 #include "main.h"
 #include "adc.h"
 #include "lptim.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -96,6 +97,8 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC_Init();
   MX_LPTIM1_Init();
+  MX_TIM2_Init();
+  MX_TIM21_Init();
   /* USER CODE BEGIN 2 */
   main_Init();
 
@@ -173,6 +176,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
+	// TODO: Trinks add code here to call our Error Handler
 
   /* USER CODE END Error_Handler_Debug */
 }

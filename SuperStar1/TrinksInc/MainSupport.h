@@ -90,10 +90,10 @@ typedef struct
 {
 	volatile uint32_t		MiliSecondCounter;		// Used by TIM21 IRQ to create delay
 	volatile float			LED_DutyCylcePercent;	// Duty Cycle LED should run at
-	float			ZeroOffset;				// Value measured in feet
-	float			ADC_DividerRatio;		// Ratio of the ADC Battery Voltage Diver
-	float			ADC_VDDA_Vref;			// Voltage Reference of ADC VDDA Voltage Reference
-	Type_InitTest	InitTest;
+	float					ZeroOffset;				// Value measured in feet
+	float					ADC_DividerRatio;		// Ratio of the ADC Battery Voltage Diver
+	float					ADC_VDDA_Vref;			// Voltage Reference of ADC VDDA Voltage Reference
+	Type_InitTest			InitTest;
 }Type_SuperStarStatus;
 
 

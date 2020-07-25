@@ -1,7 +1,0 @@
-#ifndef _LED_CONTROL_H_
-#define _LED_CONTROL_H_
-
-// MACROS
-#define GREEN_LED3_TOGGLE() HAL_GPIO_TogglePin(MC_GLED3_GPIO_Port, MC_GLED3_Pin);
-
-#endif

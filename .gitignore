@@ -1,5 +1,6 @@
 #Ignore the Debug Folder and everything in it
 SuperStar1/Debug/*
+.metadata
 
 #Ignore these specific file types
 *.rar

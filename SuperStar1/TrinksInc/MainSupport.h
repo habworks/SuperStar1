@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/19/20 \n
- * Last Edit Date:  7/19/20 \n
+ * Last Edit Date:  7/25/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -60,7 +60,8 @@
 #define PERCENT_100		(100.0)
 #define ROUND_UP_BY_ONE	(0.5)
 #define ROUND_UP_BY_TEN (10.0)
-#define _LOAD_DEFAULT_CAL_VALUE
+#define _USE_LOAD_DEFAULT_CAL_VALUE
+#define USE_SLEEP_MODE
 
 
 // TYPEDEFS AND ENUMS
@@ -82,12 +83,13 @@ typedef enum
 
 typedef struct
 {
-	bool_t		ADC_CalValuesLoaded;		// ADC Calibration Values for Divider and Voltage Reference are loaded
-	bool_t		ZeroOffsetLoaded;			// Zero Offset Loaded
+	bool_t					ADC_CalValuesLoaded;		// ADC Calibration Values for Divider and Voltage Reference are loaded
+	bool_t					ZeroOffsetLoaded;			// Zero Offset Loaded
 }Type_InitTest;
 
 typedef struct
 {
+	volatile bool_t			TimeToSleep;
 	volatile uint32_t		MiliSecondCounter;		// Used by TIM21 IRQ to create delay
 	volatile float			LED_DutyCylcePercent;	// Duty Cycle LED should run at
 	float					ZeroOffset;				// Value measured in feet

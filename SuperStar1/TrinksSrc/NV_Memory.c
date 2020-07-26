@@ -325,3 +325,9 @@ __INLINE void lockNVM(void)
 	  FLASH->PECR |= FLASH_PECR_PELOCK;
 
 } // END OF lockNVM
+
+
+flashMemoryPwrDwnWhenInSleep()
+{
+	FLASH->ACR |= FLASH_ACR_SLEEP_PD;
+}

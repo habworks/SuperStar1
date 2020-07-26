@@ -69,6 +69,7 @@ uint8_t readByteNVM(uint32_t NVM_ByteAddressOffset);
 float readFloatNVM(uint32_t NVM_ByteAddressOffset);
 void unlockNVM(void);
 void lockNVM(void);
+void flashMemoryPwrDwnWhenInSleep(void);
 
 
 #endif

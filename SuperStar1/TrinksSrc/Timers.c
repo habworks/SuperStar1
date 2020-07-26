@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/22/20 \n
- * Last Edit Date:  7/24/20 \n
+ * Last Edit Date:  7/25/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -58,8 +58,19 @@ extern Type_SuperStarStatus SuperStarStatus;
 void callbackLPTIM1_IRQ(void)
 {
 
+	static uint8_t TimeToSleep = 0;
+
+	TimeToSleep++;
+
 	// Dummy test
-	//HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+	HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+
+	if (TimeToSleep >= 3)
+	{
+		SuperStarStatus.TimeToSleep = true;
+		TimeToSleep = 0;
+	}
+
 
 }
 
@@ -139,7 +150,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 	if (TimerInIRQ->Instance == TIM21)
 	{
 
-		HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+		//HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
 		SuperStarStatus.MiliSecondCounter++;
 
 	}

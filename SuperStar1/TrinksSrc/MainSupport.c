@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/19/20 \n
- * Last Edit Date:  7/19/20 \n
+ * Last Edit Date:  7/25/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -57,20 +57,27 @@ volatile Type_SuperStarStatus SuperStarStatus;
 * @param void
 * @return void
 *
-* STEP 1: Perform the ADC Calibration
-* STEP 2: Load SuperStart Settings from memory
-* STEP 3: Init the Low Power Timer (LPTIM)
+* STEP 1:
+* STEP 2:
+* STEP 3:
 * **************************************************************************************************** */
 void main_Init(void)
 {
 
+	// STEP :
+	// Init SuperStar Status
+	// TODO: Trinks set all SuperStar Status members to zero or default state
+	SuperStarStatus.TimeToSleep = false;
+
+	// STEP :
+	// Setup Flash memory
 	// TODO: Trinks this is a quick way to program the calibration - think about if you want to do something different
-#ifdef LOAD_DEFAULT_CAL_VALUE
+#ifdef USE_LOAD_DEFAULT_CAL_VALUE
 	writeByteNVM(MEMORY_OFFSET_ADC_CALIBRATION_PROGRAMED, ADC_CALIBRATION_INSTALLED);
 	writeFloatNVM(MEMORY_OFFSET_ADC_VDDA_VREF, 3.3201);
 	writeFloatNVM(MEMORY_OFFSET_DIVIDER_RATIO, 0.3638);
 #endif
-
+	flashMemoryPwrDwnWhenInSleep();
 	// STEP :
 	// Perform the ADC Calibration
 	while(HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED) != HAL_OK);
@@ -95,7 +102,7 @@ void main_Init(void)
 
 	// STEP :
 	// Init the Low Power Timer (LPTIM)
-	while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 625) != HAL_OK);
+	while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 23437) != HAL_OK);
 
 	// STEP :
 	// Init the Timer2
@@ -104,7 +111,6 @@ void main_Init(void)
 	// STEP :
 	// Init the Timer21
 	while(HAL_TIM_Base_Start_IT(&htim21) != HAL_OK);
-
 
 } // END OF FUNCTION init_main
 
@@ -170,6 +176,8 @@ void main_WhileLoop(void)
 
 	miliSecondDelay(500);
 
+	// TEST SLEEP
+	// ADD LEDS OFF
 	OFF_GLED1();
 	OFF_GLED2();
 	OFF_GLED3();
@@ -178,7 +186,30 @@ void main_WhileLoop(void)
 	OFF_GLED6();
 	OFF_GLED7();
 	OFF_GLED8();
-	//ALL GREEN LEDs SHOULD BE OFF//
+	miliSecondDelay(1000);
+#ifdef USE_SLEEP_MODE
+	/*Suspend Tick increment to prevent wakeup by Systick interrupt.
+	  Otherwise the Systick interrupt will wake up the device within 1ms (HAL time base)*/
+	if (SuperStarStatus.TimeToSleep == true)
+	{
+		// Setup to sleep
+		HAL_SuspendTick();
+		HAL_TIM_Base_Stop_IT(&htim2);
+		HAL_TIM_Base_Stop_IT(&htim21);
+		__NOP();
+		__NOP();
+		/* Enter Sleep Mode , wake up is done once Key push button is pressed */
+		//HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI); Works at about 4.44mA on sleep
+		HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+		/* Resume Tick interrupt if disabled prior to sleep mode entry*/
+		// Setup wake from sleep
+		HAL_ResumeTick();
+		HAL_TIM_Base_Start_IT(&htim2);
+		HAL_TIM_Base_Start_IT(&htim21);
+		HAL_ADCEx_EnableVREFINT();
+		SuperStarStatus.TimeToSleep = false;
+	}
+#endif
 
 } // END OF FUNCTION init_main
 

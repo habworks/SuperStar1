@@ -33,6 +33,7 @@
 #include "BatteryMonitor.h"
 #include "NV_Memory.h"
 #include "Timers.h"
+#include "Sleep.h"
 #include "adc.h"
 #include "stm32l0xx_hal_adc_ex.h"
 #include "lptim.h"
@@ -187,26 +188,19 @@ void main_WhileLoop(void)
 	OFF_GLED7();
 	OFF_GLED8();
 	miliSecondDelay(1000);
+
 #ifdef USE_SLEEP_MODE
-	/*Suspend Tick increment to prevent wakeup by Systick interrupt.
-	  Otherwise the Systick interrupt will wake up the device within 1ms (HAL time base)*/
 	if (SuperStarStatus.TimeToSleep == true)
 	{
 		// Setup to sleep
-		HAL_SuspendTick();
-		HAL_TIM_Base_Stop_IT(&htim2);
-		HAL_TIM_Base_Stop_IT(&htim21);
-		__NOP();
-		__NOP();
-		/* Enter Sleep Mode , wake up is done once Key push button is pressed */
-		//HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI); Works at about 4.44mA on sleep
+		prepareToSleepTasks();
+
+		/* Enter Sleep Mode - Set to wake from LPTim IRQ */
 		HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-		/* Resume Tick interrupt if disabled prior to sleep mode entry*/
-		// Setup wake from sleep
-		HAL_ResumeTick();
-		HAL_TIM_Base_Start_IT(&htim2);
-		HAL_TIM_Base_Start_IT(&htim21);
-		HAL_ADCEx_EnableVREFINT();
+
+		// Processor has awoke - reconfigure to run
+		wakeFromSleepTasks();
+
 		SuperStarStatus.TimeToSleep = false;
 	}
 #endif

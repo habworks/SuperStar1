@@ -87,6 +87,7 @@ void main_Init(void)
 		SuperStarStatus.ADC_VDDA_Vref = DEFAULT_VOLTAGE_VDDA_REFERENCE;
 	}
 	/* TODO: Trinks add code to see if zero offset is loaded if not load the default */
+
 } // END OF FUNCTION init_main
 
 
@@ -108,9 +109,6 @@ void main_Init(void)
 * STEP 1:
 * STEP 2:
 * **************************************************************************************************** */
-
-uint8_t TestNum;
-
 void main_WhileLoop(void)
 {
 
@@ -119,15 +117,8 @@ void main_WhileLoop(void)
 	PresentBatteryVoltage = readBatteryVoltage();
 
 	volatile uint32_t DummyVar = 0;
-
 	volatile uint32_t FullCount = 400000;
 
-	static uint8_t TestNum = 0;
-
-
-	displayNum(TestNum);
-
-	TestNum++;
 	// LED TESING:
 	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_SET);

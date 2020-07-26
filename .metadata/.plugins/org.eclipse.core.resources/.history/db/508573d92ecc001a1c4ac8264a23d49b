@@ -1,8 +1,6 @@
 
 #ifndef _LED_CONTROL_H_
 #define _LED_CONTROL_H_
-#include "MainSupport.h"
-#include "main.h"
 
 // MACROS
 #define ON_RLED1()				HAL_GPIO_WritePin(MC_RLED1_GPIO_Port, MC_RLED1_Pin, GPIO_PIN_SET);
@@ -48,7 +46,7 @@
 
 #define GREEN_LED3_TOGGLE() 	HAL_GPIO_TogglePin(MC_GLED3_GPIO_Port, MC_GLED3_Pin);
 
-// MACROS: Seven Segment
+
 #define DIG_ONE_A()				HAL_GPIO_WritePin(MC_SEG_7A1_GPIO_Port, MC_SEG_7A1_Pin, GPIO_PIN_SET);
 #define OFF_DIG_ONE_A()			HAL_GPIO_WritePin(MC_SEG_7A1_GPIO_Port, MC_SEG_7A1_Pin, GPIO_PIN_RESET);
 
@@ -96,7 +94,6 @@
 
 // FUNCTION PROTOTYPES
 void init_OSC32_InOutAsGPIO();
-bool_t displayNum(uint8_t DigitToDisplay);
 
 
 #endif

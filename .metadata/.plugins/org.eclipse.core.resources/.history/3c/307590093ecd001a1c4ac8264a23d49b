@@ -1,7 +1,7 @@
 
 #ifndef _LED_CONTROL_H_
 #define _LED_CONTROL_H_
-#include "MainSupport.h"
+
 #include "main.h"
 
 // MACROS
@@ -96,7 +96,6 @@
 
 // FUNCTION PROTOTYPES
 void init_OSC32_InOutAsGPIO();
-bool_t displayNum(uint8_t DigitToDisplay);
 
 
 #endif

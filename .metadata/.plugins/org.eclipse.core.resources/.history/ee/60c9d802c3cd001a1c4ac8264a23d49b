@@ -42,15 +42,7 @@ bool_t displayNum(uint8_t DigitToDisplay)
 {
 	if (DigitToDisplay >= 10)
 	{
-		OFF_DIG_ONE_A();
-		OFF_DIG_ONE_B();
-		OFF_DIG_ONE_C();
-		OFF_DIG_ONE_D();
-		OFF_DIG_ONE_E();
-		OFF_DIG_ONE_F();
-		OFF_DIG_ONE_G();
-		OFF_DIG_TENS_A();
-		return (false);
+		return false;
 	}
 
 	OFF_DIG_ONE_A();
@@ -142,18 +134,6 @@ bool_t displayNum(uint8_t DigitToDisplay)
 					break;
 			}
 
-			if (DigitToDisplay >= 10)
-				{
-					OFF_DIG_ONE_A();
-					OFF_DIG_ONE_B();
-					OFF_DIG_ONE_C();
-					OFF_DIG_ONE_D();
-					OFF_DIG_ONE_E();
-					OFF_DIG_ONE_F();
-					OFF_DIG_ONE_G();
-					OFF_DIG_TENS_A();
-					return (false);
-				{
 				OFF_DIG_TENS_A();
 				OFF_DIG_TENS_B();
 				OFF_DIG_TENS_C();
@@ -243,6 +223,5 @@ bool_t displayNum(uint8_t DigitToDisplay)
 						OFF_DIG_TENS_G();
 						break;
 			}
-	return (true);
 
 }

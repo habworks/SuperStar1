@@ -70,10 +70,15 @@ void prepareToSleepTasks(void)
 	// STEP :
 	// Set the necessary condtions for sleep
 	HAL_SuspendTick();
+
 	HAL_TIM_Base_Stop_IT(&htim2);
 	HAL_TIM_Base_Stop_IT(&htim21);
+
 	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
 	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
+
+	HAL_TIM_Base_MspDeInit(&htim2);
+	HAL_TIM_Base_MspDeInit(&htim21);
 
 } // END OF prepareToSleepTasks
 
@@ -106,6 +111,10 @@ void wakeFromSleepTasks(void)
 	// STEP :
 	// Resume Timer ticks and IRQs
 	HAL_ResumeTick();
+
+	HAL_TIM_Base_MspInit(&htim2);
+	HAL_TIM_Base_MspInit(&htim21);
+
 	HAL_TIM_Base_Start_IT(&htim2);
 	HAL_TIM_Base_Start_IT(&htim21);
 

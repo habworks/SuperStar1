@@ -70,33 +70,40 @@
 #define DIG_ONE_G()				HAL_GPIO_WritePin(MC_SEG_10G1_GPIO_Port, MC_SEG_10G1_Pin, GPIO_PIN_SET);
 #define OFF_DIG_ONE_G()			HAL_GPIO_WritePin(MC_SEG_10G1_GPIO_Port, MC_SEG_10G1_Pin, GPIO_PIN_RESET);
 
-#define DIG_DP()				HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_SET);
+#define POWER_ON_SENSOR_DP()	HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_SET);
+#define POWER_OFF_SESNOR_DP()	HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_A()			HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_A()		HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_A()			HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_A()		HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_B()			HAL_GPIO_WritePin(MC_SEG_8B2_GPIO_Port, MC_SEG_8B2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_B()		HAL_GPIO_WritePin(MC_SEG_8B2_GPIO_Port, MC_SEG_8B2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_B()			HAL_GPIO_WritePin(MC_SEG_8B2_GPIO_Port, MC_SEG_8B2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_B()		HAL_GPIO_WritePin(MC_SEG_8B2_GPIO_Port, MC_SEG_8B2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_C()			HAL_GPIO_WritePin(MC_SEG_4C2_GPIO_Port, MC_SEG_4C2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_C()		HAL_GPIO_WritePin(MC_SEG_4C2_GPIO_Port, MC_SEG_4C2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_C()			HAL_GPIO_WritePin(MC_SEG_4C2_GPIO_Port, MC_SEG_4C2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_C()		HAL_GPIO_WritePin(MC_SEG_4C2_GPIO_Port, MC_SEG_4C2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_D()			HAL_GPIO_WritePin(MC_SEG_2D2_GPIO_Port, MC_SEG_2D2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_D()		HAL_GPIO_WritePin(MC_SEG_2D2_GPIO_Port, MC_SEG_2D2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_D()			HAL_GPIO_WritePin(MC_SEG_2D2_GPIO_Port, MC_SEG_2D2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_D()		HAL_GPIO_WritePin(MC_SEG_2D2_GPIO_Port, MC_SEG_2D2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_E()			HAL_GPIO_WritePin(MC_SEG_3E2_GPIO_Port, MC_SEG_3E2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_E()		HAL_GPIO_WritePin(MC_SEG_3E2_GPIO_Port, MC_SEG_3E2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_E()			HAL_GPIO_WritePin(MC_SEG_3E2_GPIO_Port, MC_SEG_3E2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_E()		HAL_GPIO_WritePin(MC_SEG_3E2_GPIO_Port, MC_SEG_3E2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_F()			HAL_GPIO_WritePin(MC_SEG_9F2_GPIO_Port, MC_SEG_9F2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_F()		HAL_GPIO_WritePin(MC_SEG_9F2_GPIO_Port, MC_SEG_9F2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_F()			HAL_GPIO_WritePin(MC_SEG_9F2_GPIO_Port, MC_SEG_9F2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_F()		HAL_GPIO_WritePin(MC_SEG_9F2_GPIO_Port, MC_SEG_9F2_Pin, GPIO_PIN_RESET);
 
-#define DIG_TENS_G()			HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_SET);
-#define OFF_DIG_TENS_G()		HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_RESET);
+#define DIG_TENTH_G()			HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_SET);
+#define OFF_DIG_TENTH_G()		HAL_GPIO_WritePin(MC_SEG_10G2_GPIO_Port, MC_SEG_10G2_Pin, GPIO_PIN_RESET);
 
 
 // FUNCTION PROTOTYPES
 void init_OSC32_InOutAsGPIO();
-bool_t displayNum(uint8_t DigitToDisplay);
+bool_t displayNumONE(uint8_t DigitToDisplayONE);
+bool_t displayNumTENTH(uint8_t DigitToDisplayTENTH);
+bool_t displayErrorCode(uint8_t);
+void segONE_OFF (void);
+void segTENTH_OFF (void);
+void all_LedOFF (void);
+void ledFLASH_test_1 (void);
 
 
 #endif

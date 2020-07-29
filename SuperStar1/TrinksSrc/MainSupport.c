@@ -118,69 +118,22 @@ void main_WhileLoop(void)
 
 	PresentBatteryVoltage = readBatteryVoltage();
 
-	volatile uint32_t DummyVar = 0;
 
-	volatile uint32_t FullCount = 400000;
+	static uint8_t TestNumONE = 0;
+	static uint8_t TestNumTENTHS = 9;
 
-	static uint8_t TestNum = 0;
+	static uint8_t ErrorCode = 0;
+	displayErrorCode(ErrorCode);
+	ErrorCode++;
 
 
-	displayNum(TestNum);
+	POWER_ON_SENSOR_DP();
+	//displayNumONE(TestNumONE);
+	//displayNumTENTH(TestNumTENTHS);
+	TestNumONE++;
+	TestNumTENTHS--;;
 
-	TestNum++;
-	// LED TESING:
-	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_SET);
-	ON_RLED1();
-	ON_RLED2();
-	ON_RLED3();
-	ON_RLED4();
-	ON_RLED5();
-	ON_RLED6();
-	ON_RLED7();
-	ON_RLED8();
-	//ALL RED SHOULD BE ON//
-	for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-	  {
-		  DummyVar++;
-	  }
-	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_RESET);
-	OFF_RLED1();
-	OFF_RLED2();
-	OFF_RLED3();
-	OFF_RLED4();
-	OFF_RLED5();
-	OFF_RLED6();
-	OFF_RLED7();
-	OFF_RLED8();
-	//ALL RED LEDs SHOULD BE OFF//
-
-	//NEXT COLOR//
-	ON_GLED1();
-	ON_GLED2();
-	ON_GLED3();
-	ON_GLED4();
-	ON_GLED5();
-	ON_GLED6();
-	ON_GLED7();
-	ON_GLED8();
-
-	for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-		  {
-			  DummyVar++;
-		  }
-
-	OFF_GLED1();
-	OFF_GLED2();
-	OFF_GLED3();
-	OFF_GLED4();
-	OFF_GLED5();
-	OFF_GLED6();
-	OFF_GLED7();
-	OFF_GLED8();
-	//ALL GREEN LEDs SHOULD BE OFF//
-
+	ledFLASH_test_1();
 
 } // END OF FUNCTION init_main
 

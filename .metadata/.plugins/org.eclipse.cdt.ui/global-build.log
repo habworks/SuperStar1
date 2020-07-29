@@ -5458,3 +5458,984 @@ Info: Nothing to build for SuperStar1
 Info: Nothing to build for SuperStar1
 Info: Nothing to build for SuperStar1
 Info: Nothing to build for SuperStar1
+13:24:41 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: At top level:
+..\TrinksSrc\LED_Control.c:148:8: error: redefinition of 'displayNum'
+ bool_t displayNum(uint8_t DigitToDisplayTENS)
+        ^~~~~~~~~~
+..\TrinksSrc\LED_Control.c:41:8: note: previous definition of 'displayNum' was here
+ bool_t displayNum(uint8_t DigitToDisplayONE)
+        ^~~~~~~~~~
+13:43:07 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+TrinksSrc\MainSupport.o: In function `main_WhileLoop':
+C:\Users\habco\Documents\MyBranchSuperStar\SuperStar1\SuperStar1\Debug/..\TrinksSrc/MainSupport.c:128: undefined reference to `displayNum'
+collect2.exe: error: ld returned 1 exit status
+13:47:45 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+TrinksSrc\MainSupport.o: In function `main_WhileLoop':
+C:\Users\habco\Documents\MyBranchSuperStar\SuperStar1\SuperStar1\Debug/..\TrinksSrc/MainSupport.c:128: undefined reference to `displayNum'
+collect2.exe: error: ld returned 1 exit status
+13:48:43 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:128:2: warning: implicit declaration of function 'displayNumONE' [-Wimplicit-function-declaration]
+  displayNumONE(TestNum);
+  ^~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:129:2: warning: implicit declaration of function 'displayNumTENS' [-Wimplicit-function-declaration]
+  displayNumTENS(TestNum);
+  ^~~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+TrinksSrc\MainSupport.o: In function `main_WhileLoop':
+C:\Users\habco\Documents\MyBranchSuperStar\SuperStar1\SuperStar1\Debug/..\TrinksSrc/MainSupport.c:129: undefined reference to `displayNumTENS'
+collect2.exe: error: ld returned 1 exit status
+13:49:04 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:128:2: warning: implicit declaration of function 'displayNumONE' [-Wimplicit-function-declaration]
+  displayNumONE(TestNum);
+  ^~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:129:2: warning: implicit declaration of function 'displayNumTENTH' [-Wimplicit-function-declaration]
+  displayNumTENTH(TestNum);
+  ^~~~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8784	     12	   1684	  10480	   28f0	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+13:50:05 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8784	     12	   1684	  10480	   28f0	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+13:51:27 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8784	     12	   1684	  10480	   28f0	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+13:57:03 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8820	     16	   1684	  10520	   2918	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+13:58:26 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8332	     16	   1684	  10032	   2730	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+13:59:10 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8820	     16	   1684	  10520	   2918	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+14:02:07 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8332	     16	   1684	  10032	   2730	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+Info: Nothing to build for SuperStar1
+14:07:12 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8820	     16	   1684	  10520	   2918	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+14:10:39 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8796	     16	   1684	  10496	   2900	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+15:28:38 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8796	     16	   1684	  10496	   2900	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+15:37:31 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:128:2: warning: implicit declaration of function 'POWER_ON_DP' [-Wimplicit-function-declaration]
+  POWER_ON_DP();
+  ^~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+TrinksSrc\MainSupport.o: In function `main_WhileLoop':
+C:\Users\habco\Documents\MyBranchSuperStar\SuperStar1\SuperStar1\Debug/..\TrinksSrc/MainSupport.c:128: undefined reference to `POWER_ON_DP'
+collect2.exe: error: ld returned 1 exit status
+15:38:19 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8808	     16	   1684	  10508	   290c	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+16:17:09 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:135:2: error: expected ',' or ';' before 'SetNUM'
+  SetNUM++;
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+16:17:52 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: At top level:
+..\TrinksSrc\LED_Control.c:308:1: error: expected identifier or '(' before '{' token
+ {
+ ^
+16:18:18 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:135:2: error: expected ',' or ';' before 'SetNUM'
+  SetNUM++;
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+16:26:58 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:135:2: error: expected ',' or ';' before 'SetNUM'
+  SetNUM++;
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+16:27:23 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:135:2: error: expected ',' or ';' before 'setBOTH'
+  setBOTH(SetNUM);
+  ^~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+16:29:26 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'setBOTH':
+..\TrinksSrc\LED_Control.c:311:2: error: case label not within a switch statement
+  case 6:
+  ^~~~
+16:30:14 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   9140	     16	   1684	  10840	   2a58	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+16:33:03 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:126:17: warning: unused variable 'TestNumTENTHS' [-Wunused-variable]
+  static uint8_t TestNumTENTHS = 9;
+                 ^~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:125:17: warning: unused variable 'TestNumONE' [-Wunused-variable]
+  static uint8_t TestNumONE = 0;
+                 ^~~~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+At top level:
+..\TrinksSrc\MainSupport.c:125:17: warning: 'TestNumONE' defined but not used [-Wunused-variable]
+  static uint8_t TestNumONE = 0;
+                 ^~~~~~~~~~
+..\TrinksSrc\MainSupport.c:126:17: warning: 'TestNumTENTHS' defined but not used [-Wunused-variable]
+  static uint8_t TestNumTENTHS = 9;
+                 ^~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7964	     12	   1684	   9660	   25bc	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+15:47:49 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8808	     16	   1684	  10508	   290c	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+Info: Nothing to build for SuperStar1
+16:15:19 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:128:2: warning: implicit declaration of function 'ledOFF' [-Wimplicit-function-declaration]
+  ledOFF();
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   9016	     16	   1684	  10716	   29dc	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:23:16 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'displayNumONE':
+..\TrinksSrc\LED_Control.c:67:3: warning: statement with no effect [-Wunused-value]
+   segONE_OFF;
+   ^~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'displayNumTENTH':
+..\TrinksSrc\LED_Control.c:194:3: warning: statement with no effect [-Wunused-value]
+   segTENTH_OFF;
+   ^~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'setBOTH':
+..\TrinksSrc\LED_Control.c:440:3: warning: statement with no effect [-Wunused-value]
+   segONE_OFF;
+   ^~~~~~~~~~
+..\TrinksSrc\LED_Control.c:441:3: warning: statement with no effect [-Wunused-value]
+   segTENTH_OFF;
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8840	     16	   1684	  10540	   292c	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+09:25:14 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'displayNumTENTH':
+..\TrinksSrc\LED_Control.c:215:3: warning: statement with no effect [-Wunused-value]
+   segTENTH_OFF;
+   ^~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'setBOTH':
+..\TrinksSrc\LED_Control.c:438:3: warning: statement with no effect [-Wunused-value]
+   segONE_OFF;
+   ^~~~~~~~~~
+..\TrinksSrc\LED_Control.c:439:3: warning: statement with no effect [-Wunused-value]
+   segTENTH_OFF;
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8928	     16	   1684	  10628	   2984	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+09:25:49 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   9036	     16	   1684	  10736	   29f0	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+09:26:19 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8016	     16	   1684	   9716	   25f4	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+Info: Nothing to build for SuperStar1
+Info: Nothing to build for SuperStar1
+09:29:19 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8024	     16	   1684	   9724	   25fc	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:30:32 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7888	     16	   1684	   9588	   2574	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:32:37 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8408	     16	   1684	  10108	   277c	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:33:40 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8420	     16	   1684	  10120	   2788	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:43:14 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:139:2: warning: implicit declaration of function 'ledFLASH_test_1' [-Wimplicit-function-declaration]
+  ledFLASH_test_1();
+  ^~~~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:123:20: warning: unused variable 'FullCount' [-Wunused-variable]
+  volatile uint32_t FullCount = 400000;
+                    ^~~~~~~~~
+..\TrinksSrc\MainSupport.c:121:20: warning: unused variable 'DummyVar' [-Wunused-variable]
+  volatile uint32_t DummyVar = 0;
+                    ^~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'ledFLASH_test_1':
+..\TrinksSrc\LED_Control.c:78:48: error: 'FullCount' undeclared (first use in this function)
+  for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
+                                                ^~~~~~~~~
+..\TrinksSrc\LED_Control.c:78:48: note: each undeclared identifier is reported only once for each function it appears in
+..\TrinksSrc\LED_Control.c:80:5: error: 'DummyVar' undeclared (first use in this function)
+     DummyVar++;
+     ^~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'displayNumTENTH':
+..\TrinksSrc\LED_Control.c:341:4: warning: implicit declaration of function 'seg_TENTH_OFF' [-Wimplicit-function-declaration]
+    seg_TENTH_OFF();
+    ^~~~~~~~~~~~~
+09:44:17 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+..\TrinksSrc\LED_Control.c: In function 'displayNumTENTH':
+..\TrinksSrc\LED_Control.c:344:4: warning: implicit declaration of function 'seg_TENTH_OFF' [-Wimplicit-function-declaration]
+    seg_TENTH_OFF();
+    ^~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:136:2: warning: implicit declaration of function 'ledFLASH_test_1' [-Wimplicit-function-declaration]
+  ledFLASH_test_1();
+  ^~~~~~~~~~~~~~~
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8636	     16	   1684	  10336	   2860	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+09:45:26 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8636	     16	   1684	  10336	   2860	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+09:46:04 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8636	     16	   1684	  10336	   2860	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:50:58 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\adc.o ..\Src\adc.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\system_stm32l0xx.o ..\Src\system_stm32l0xx.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\gpio.o ..\Src\gpio.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\stm32l0xx_it.o ..\Src\stm32l0xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\NV_Memory.o ..\TrinksSrc\NV_Memory.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\BatteryMonitor.o ..\TrinksSrc\BatteryMonitor.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\syscalls.o ..\Src\syscalls.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\main.o ..\Src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o Src\stm32l0xx_hal_msp.o ..\Src\stm32l0xx_hal_msp.c 
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8636	     16	   1684	  10336	   2860	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+09:59:02 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:127:2: error: 'SetNUM' undeclared (first use in this function)
+  SetNUM++;
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:127:2: note: each undeclared identifier is reported only once for each function it appears in
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+09:59:09 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:127:2: error: 'SetNUM' undeclared (first use in this function)
+  SetNUM++;
+  ^~~~~~
+..\TrinksSrc\MainSupport.c:127:2: note: each undeclared identifier is reported only once for each function it appears in
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+09:59:51 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\MainSupport.o ..\TrinksSrc\MainSupport.c 
+..\TrinksSrc\MainSupport.c: In function 'main_WhileLoop':
+..\TrinksSrc\MainSupport.c:117:8: warning: variable 'PresentBatteryVoltage' set but not used [-Wunused-but-set-variable]
+  float PresentBatteryVoltage;
+        ^~~~~~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8636	     16	   1684	  10336	   2860	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+10:04:09 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8688	     16	   1684	  10388	   2894	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+10:05:59 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8892	     16	   1684	  10592	   2960	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+Info: Nothing to build for SuperStar1
+11:02:21 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8684	     16	   1684	  10384	   2890	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+11:14:16 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8684	     16	   1684	  10384	   2890	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 
+14:05:39 **** Incremental Build of configuration Debug for project SuperStar1 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L010x6 -I../Inc -I../TrinksInc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fstack-usage -Wall -specs=nano.specs -o TrinksSrc\LED_Control.o ..\TrinksSrc\LED_Control.c 
+..\TrinksSrc\LED_Control.c: In function 'init_OSC32_InOutAsGPIO':
+..\TrinksSrc\LED_Control.c:11:21: warning: unused variable 'RCC_OscInitStruct' [-Wunused-variable]
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+                     ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o SuperStar1.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_adc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Src\adc.o Src\gpio.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\syscalls.o Src\system_stm32l0xx.o TrinksSrc\BatteryMonitor.o TrinksSrc\LED_Control.o TrinksSrc\MainSupport.o TrinksSrc\NV_Memory.o startup\startup_stm32l010x6.o -mthumb -mcpu=cortex-m0plus -T../STM32L010C6_FLASH.ld -specs=nosys.specs -static -Wl,-Map=SuperStar1.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list SuperStar1.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8684	     16	   1684	  10384	   2890	SuperStar1.elf
+Print size information done
+Generate listing file
+Output sent to: SuperStar1.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex SuperStar1.elf SuperStar1.hex 

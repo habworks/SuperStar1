@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.eclipse.cdt.ui.workingSetConfigurations>
-<workingSet name="Set_SuperStar1">
-<config name="DeBug">
-<project config="com.atollic.truestudio.exe.debug.1518366166" name="SuperStar1"/>
-</config>
-</workingSet>
-</org.eclipse.cdt.ui.workingSetConfigurations>

@@ -32,9 +32,13 @@
 #include "LED_Control.h"
 #include "BatteryMonitor.h"
 #include "NV_Memory.h"
+#include "Timers.h"
 #include "adc.h"
 #include "stm32l0xx_hal_adc_ex.h"
+#include "lptim.h"
+#include "tim.h"
 
+// GLOBAL VARS
 volatile Type_SuperStarStatus SuperStarStatus;
 
 
@@ -55,6 +59,7 @@ volatile Type_SuperStarStatus SuperStarStatus;
 *
 * STEP 1: Perform the ADC Calibration
 * STEP 2: Load SuperStart Settings from memory
+* STEP 3: Init the Low Power Timer (LPTIM)
 * **************************************************************************************************** */
 void main_Init(void)
 {
@@ -71,7 +76,7 @@ void main_Init(void)
 	while(HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED) != HAL_OK);
 
 	// STEP :
-	// Load SuperStart Settings from memorySTEP 2: Load SuperStart Settings from memory
+	// Load SuperStart Settings from memory
 	uint8_t ADC_CalibrationCode;
 	ADC_CalibrationCode = readByteNVM(MEMORY_OFFSET_ADC_CALIBRATION_PROGRAMED);
 	if (ADC_CalibrationCode == ADC_CALIBRATION_INSTALLED)
@@ -87,6 +92,19 @@ void main_Init(void)
 		SuperStarStatus.ADC_VDDA_Vref = DEFAULT_VOLTAGE_VDDA_REFERENCE;
 	}
 	/* TODO: Trinks add code to see if zero offset is loaded if not load the default */
+
+	// STEP :
+	// Init the Low Power Timer (LPTIM)
+	while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 625) != HAL_OK);
+
+	// STEP :
+	// Init the Timer2
+	while(HAL_TIM_Base_Start_IT(&htim2) != HAL_OK);
+
+	// STEP :
+	// Init the Timer21
+	while(HAL_TIM_Base_Start_IT(&htim21) != HAL_OK);
+
 } // END OF FUNCTION init_main
 
 
@@ -114,9 +132,11 @@ uint8_t TestNum;
 void main_WhileLoop(void)
 {
 
+	// HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
-
 	PresentBatteryVoltage = readBatteryVoltage();
+  // HOW TO CALCULATE DUTY CYCLE OF BATTERY
+	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
 
 	static uint8_t TestNumONE = 0;
@@ -135,7 +155,8 @@ void main_WhileLoop(void)
 
 	ledFLASH_test_1();
 
-} // END OF FUNCTION init_main
+
+} // END OF FUNCTION init_WhileLoop
 
 
 

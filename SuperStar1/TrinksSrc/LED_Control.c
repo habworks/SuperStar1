@@ -4,7 +4,7 @@
 #include "stm32l0xx_hal_rcc.h"
 #include "MainSupport.h"
 
-
+/*
 void init_OSC32_InOutAsGPIO()
 {
 	GPIO_InitTypeDef GPIO_InitStructure = {0};
@@ -22,7 +22,7 @@ void init_OSC32_InOutAsGPIO()
 
 	SET_BIT(RCC->CR, RCC_CR_HSEON);
 	CLEAR_BIT(RCC->CSR, RCC_CSR_LSEON);
-/*
+
 	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_OFF;
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
 	{
@@ -31,7 +31,7 @@ void init_OSC32_InOutAsGPIO()
 
 	CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
 	CLEAR_BIT(RCC->CSR, RCC_CSR_LSION);
-	*/
+
 
 	//PWR_RTCAccessCmd(ENABLE); // Enable access to LSE
 	//RCC_LSEConfig(RCC_LSE_OFF); // PC14 PC15 as GPIO
@@ -626,3 +626,4 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 	return (true);
 
 } // END OF displayErrorCode
+

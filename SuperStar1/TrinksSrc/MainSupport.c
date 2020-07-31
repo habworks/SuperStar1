@@ -196,8 +196,8 @@ void main_WhileLoop(void)
 		prepareToSleepTasks();
 
 		/* Enter Sleep Mode - Set to wake from LPTim IRQ */
-		//HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-		HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+		HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+		//HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 
 		// Processor has awoke - reconfigure to run
 		wakeFromSleepTasks();

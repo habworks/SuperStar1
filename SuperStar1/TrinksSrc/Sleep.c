@@ -69,7 +69,7 @@ void prepareToSleepTasks(void)
 
 	// STEP :
 	// Set the necessary condtions for sleep
-	HAL_SuspendTick();
+	//HAL_SuspendTick();
 
 	HAL_TIM_Base_Stop_IT(&htim2);
 	HAL_TIM_Base_Stop_IT(&htim21);
@@ -79,6 +79,15 @@ void prepareToSleepTasks(void)
 
 	HAL_TIM_Base_MspDeInit(&htim2);
 	HAL_TIM_Base_MspDeInit(&htim21);
+
+    /* Enable the power down mode during Sleep mode */
+    __HAL_FLASH_SLEEP_POWERDOWN_ENABLE();
+
+    /* Suspend Tick increment to prevent wakeup by Systick interrupt.         */
+    /* Otherwise the Systick interrupt will wake up the device within 1ms     */
+    /* (HAL time base).                                                       */
+    HAL_SuspendTick();
+    //_SLEEP_POWERDOWN_ENABLE();
 
 } // END OF prepareToSleepTasks
 

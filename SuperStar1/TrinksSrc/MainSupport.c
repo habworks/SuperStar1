@@ -134,15 +134,19 @@ void main_Init(void)
 * STEP 1:
 * STEP 2:
 * **************************************************************************************************** */
+
+uint8_t TestNum;
+
 void main_WhileLoop(void)
 {
 
 	// HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
 	PresentBatteryVoltage = readBatteryVoltage();
-	// HOW TO CALCULATE DUTY CYCLE OF BATTERY
+  // HOW TO CALCULATE DUTY CYCLE OF BATTERY
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
+<<<<<<< HEAD
 	// LED TESING:
 	ON_RLED1();
 	ON_RLED2();
@@ -205,8 +209,27 @@ void main_WhileLoop(void)
 		SuperStarStatus.TimeToSleep = false;
 	}
 #endif
+=======
+>>>>>>> 16ccc00d192a4524aec811c02cb2a0fa43230e4a
 
-} // END OF FUNCTION init_main
+	static uint8_t TestNumONE = 0;
+	static uint8_t TestNumTENTHS = 9;
+
+	static uint8_t ErrorCode = 0;
+	displayErrorCode(ErrorCode);
+	ErrorCode++;
+
+
+	POWER_ON_SENSOR_DP();
+	//displayNumONE(TestNumONE);
+	//displayNumTENTH(TestNumTENTHS);
+	TestNumONE++;
+	TestNumTENTHS--;;
+
+	ledFLASH_test_1();
+
+
+} // END OF FUNCTION init_WhileLoop
 
 
 

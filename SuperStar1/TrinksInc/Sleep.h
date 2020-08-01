@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/26/20 \n
- * Last Edit Date:  7/26/20 \n
+ * Last Edit Date:  8/1/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -30,9 +30,13 @@
 #ifndef _SLEEP_H_
 #define _SLEEP_H_
 
+// DEFINES
+#define NOP_CYCLES_BEFORE_SLEEP		(100U)
+
 
 // PROTOTYPE FUNCTIONS
 void prepareToSleepTasks(void);
 void wakeFromSleepTasks(void);
+void lowPowerConfig_GPIO(void);
 
 #endif

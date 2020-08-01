@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/22/20 \n
- * Last Edit Date:  7/25/20 \n
+ * Last Edit Date:  8/1/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -65,14 +65,14 @@ void callbackLPTIM1_IRQ(void)
 	// Dummy test
 	HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
 
-	if (TimeToSleep >= 3)
+	if (TimeToSleep >= 5)
 	{
-		SuperStarStatus.TimeToSleep = true;
+		//SuperStarStatus.TimeToSleep = true;
 		TimeToSleep = 0;
 	}
 
 
-}
+} // END OF callbackLPTIM1_IRQ
 
 
 
@@ -149,13 +149,40 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 	// TIIM21 IRQ HANDLER
 	if (TimerInIRQ->Instance == TIM21)
 	{
-
-		//HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+#ifdef USE_TIM21_NOT_SYSTICK
 		SuperStarStatus.MiliSecondCounter++;
-
+#endif
 	}
 
 } // END OF FUNCTION HAL_TIM_PeriodElapsedCallback
+
+
+
+/** ****************************************************************************************************
+* @brief This is the call back function of the SysTick IRQ.  It is used here as a generic timer
+*
+* @author 			Hab S. Collector \n
+* Last Edited By:  	Hab S. Collector \n
+*
+* @note This function is prototyped weak elsewhere
+* @note This is the systick timer
+* @note Systick Timer clock rate IRQ = 1kHz
+* @note Defined as part of the core system - I think it is here by default
+*
+* @param void
+* @return void
+*
+* STEP 1:
+* **************************************************************************************************** */
+void HAL_IncTick(void)
+{
+
+	// HAL_GPIO_TogglePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin);
+#ifndef USE_TIM21_NOT_SYSTICK
+	SuperStarStatus.MiliSecondCounter++;
+#endif
+
+} // END OF HAL_IncTick
 
 
 
@@ -181,3 +208,8 @@ void miliSecondDelay(const uint32_t DelayInMiliSeconds)
 	while (SuperStarStatus.MiliSecondCounter < DelayInMiliSeconds);
 
 } // END OF miliSecondDelay
+
+
+
+
+

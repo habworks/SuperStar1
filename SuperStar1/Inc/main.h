@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l0xx_hal.h"
+#include "stm32l0xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -96,6 +97,7 @@ void Error_Handler(void);
 #define MC_GLED8_GPIO_Port GPIOB
 #define SW_Zero_Pin GPIO_PIN_11
 #define SW_Zero_GPIO_Port GPIOB
+#define SW_Zero_EXTI_IRQn EXTI4_15_IRQn
 #define MC_RLED8_Pin GPIO_PIN_12
 #define MC_RLED8_GPIO_Port GPIOB
 #define MC_RLED7_Pin GPIO_PIN_13

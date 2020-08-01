@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/19/20 \n
- * Last Edit Date:  7/25/20 \n
+ * Last Edit Date:  8/1/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -103,7 +103,7 @@ void main_Init(void)
 
 	// STEP :
 	// Init the Low Power Timer (LPTIM)
-	while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 23437) != HAL_OK);
+	//while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 3468) != HAL_OK);
 
 	// STEP :
 	// Init the Timer2
@@ -111,7 +111,9 @@ void main_Init(void)
 
 	// STEP :
 	// Init the Timer21
+#ifdef USE_TIM21_NOT_SYSTICK
 	while(HAL_TIM_Base_Start_IT(&htim21) != HAL_OK);
+#endif
 
 } // END OF FUNCTION init_main
 
@@ -146,52 +148,24 @@ void main_WhileLoop(void)
   // HOW TO CALCULATE DUTY CYCLE OF BATTERY
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
-<<<<<<< HEAD
-	// LED TESING:
-	ON_RLED1();
-	ON_RLED2();
-	ON_RLED3();
-	ON_RLED4();
-	ON_RLED5();
-	ON_RLED6();
-	ON_RLED7();
-	ON_RLED8();
-	//ALL RED SHOULD BE ON//
-	miliSecondDelay(500);
 
-	OFF_RLED1();
-	OFF_RLED2();
-	OFF_RLED3();
-	OFF_RLED4();
-	OFF_RLED5();
-	OFF_RLED6();
-	OFF_RLED7();
-	OFF_RLED8();
-	//ALL RED LEDs SHOULD BE OFF//
 
-	//NEXT COLOR//
-	ON_GLED1();
-	ON_GLED2();
-	ON_GLED3();
-	ON_GLED4();
-	ON_GLED5();
-	ON_GLED6();
-	ON_GLED7();
-	ON_GLED8();
+	static uint8_t TestNumONE = 0;
+	static uint8_t TestNumTENTHS = 9;
 
-	miliSecondDelay(500);
+	static uint8_t ErrorCode = 0;
+	displayErrorCode(ErrorCode);
+	ErrorCode++;
 
-	// TEST SLEEP
-	// ADD LEDS OFF
-	OFF_GLED1();
-	OFF_GLED2();
-	OFF_GLED3();
-	OFF_GLED4();
-	OFF_GLED5();
-	OFF_GLED6();
-	OFF_GLED7();
-	OFF_GLED8();
-	miliSecondDelay(1000);
+
+	POWER_ON_SENSOR_DP();
+	displayNumONE(TestNumONE);
+	displayNumTENTH(TestNumTENTHS);
+	TestNumONE++;
+	TestNumTENTHS--;;
+
+	ledFLASH_test_1();
+
 
 #ifdef USE_SLEEP_MODE
 	if (SuperStarStatus.TimeToSleep == true)
@@ -209,24 +183,6 @@ void main_WhileLoop(void)
 		SuperStarStatus.TimeToSleep = false;
 	}
 #endif
-=======
->>>>>>> 16ccc00d192a4524aec811c02cb2a0fa43230e4a
-
-	static uint8_t TestNumONE = 0;
-	static uint8_t TestNumTENTHS = 9;
-
-	static uint8_t ErrorCode = 0;
-	displayErrorCode(ErrorCode);
-	ErrorCode++;
-
-
-	POWER_ON_SENSOR_DP();
-	//displayNumONE(TestNumONE);
-	//displayNumTENTH(TestNumTENTHS);
-	TestNumONE++;
-	TestNumTENTHS--;;
-
-	ledFLASH_test_1();
 
 
 } // END OF FUNCTION init_WhileLoop

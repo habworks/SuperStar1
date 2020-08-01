@@ -327,7 +327,7 @@ __INLINE void lockNVM(void)
 } // END OF lockNVM
 
 
-flashMemoryPwrDwnWhenInSleep()
+void flashMemoryPwrDwnWhenInSleep(void)
 {
 	FLASH->ACR |= FLASH_ACR_SLEEP_PD;
 }

@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/26/20 \n
- * Last Edit Date:  7/26/20 \n
+ * Last Edit Date:  8/1/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -29,8 +29,12 @@
 
 #include "Sleep.h"
 #include "MainSupport.h"
+#include "LED_Control.h"
 #include "stm32l0xx_hal.h"
+#include "adc.h"
 #include "tim.h"
+#include "lptim.h"
+#include "gpio.h"
 
 
 extern Type_SuperStarStatus SuperStarStatus;
@@ -60,34 +64,70 @@ extern Type_SuperStarStatus SuperStarStatus;
 void prepareToSleepTasks(void)
 {
 
+	// Disable external Zero IRQ to avoid re-trigger
+	HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
+
+    // STEP :
+    // Slow the system clock way down
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+                                  RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI; // This is changed from RCC_SYSCLKSOURCE_HSI used for normal run mode;
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
 	// STEP :
 	// Set board to its quiescent state
-	// allLEDsOff()
-	// allSevenSegmentsOff()
-	// poweroffSensor()
-
+	all_LedOFF();
+	segONE_OFF();
+	segTENTH_OFF();
+	POWER_OFF_SESNOR_DP();
 
 	// STEP :
-	// Set the necessary condtions for sleep
-	//HAL_SuspendTick();
-
+	// Set timers to low power
+	// Timer 1 and Timer 21
 	HAL_TIM_Base_Stop_IT(&htim2);
-	HAL_TIM_Base_Stop_IT(&htim21);
-
-	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
-	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
-
 	HAL_TIM_Base_MspDeInit(&htim2);
+#ifdef 	USE_TIM21_NOT_SYSTICK
+	HAL_TIM_Base_Stop_IT(&htim21);
 	HAL_TIM_Base_MspDeInit(&htim21);
+#endif
+	// System Tick
+    HAL_SuspendTick();
 
-    /* Enable the power down mode during Sleep mode */
+    // STEP :
+    // ADC to turn off
+    HAL_ADC_MspDeInit(&hadc);
+
+
+    // STEP :
+    // Disable GPIO
+    __HAL_RCC_GPIOC_CLK_DISABLE();
+    __HAL_RCC_GPIOH_CLK_DISABLE();
+    __HAL_RCC_GPIOA_CLK_DISABLE();
+    __HAL_RCC_GPIOB_CLK_DISABLE();
+
+    // STEP :
+    // Set Flash for low power during sleep
     __HAL_FLASH_SLEEP_POWERDOWN_ENABLE();
 
-    /* Suspend Tick increment to prevent wakeup by Systick interrupt.         */
-    /* Otherwise the Systick interrupt will wake up the device within 1ms     */
-    /* (HAL time base).                                                       */
-    HAL_SuspendTick();
-    //_SLEEP_POWERDOWN_ENABLE();
+
+    // STEP :
+    // Enable IRQ to allow Zero wake from sleep
+    HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
+
+    // STEP:
+    // Just to be safe run a few NOP to allow time to settle
+    for (uint8_t NOP_CycleCount = 0; NOP_CycleCount < NOP_CYCLES_BEFORE_SLEEP; NOP_CycleCount++)
+    {
+    	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
+    }
 
 } // END OF prepareToSleepTasks
 
@@ -117,18 +157,83 @@ void prepareToSleepTasks(void)
 * **************************************************************************************************** */
 void wakeFromSleepTasks(void)
 {
+
+    // STEP :
+    // Slow the system clock way down
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+                                  RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
 	// STEP :
-	// Resume Timer ticks and IRQs
+	// Resume Timer ticks and IRQs for run time use
+	HAL_TIM_Base_MspInit(&htim2);
+	HAL_TIM_Base_Start_IT(&htim2);
+#ifdef USE_TIM21_NOT_SYSTICK
+	HAL_TIM_Base_MspInit(&htim21);
+	HAL_TIM_Base_Start_IT(&htim21);
+#endif
 	HAL_ResumeTick();
 
-	HAL_TIM_Base_MspInit(&htim2);
-	HAL_TIM_Base_MspInit(&htim21);
-
-	HAL_TIM_Base_Start_IT(&htim2);
-	HAL_TIM_Base_Start_IT(&htim21);
+	// STEP :
+	// Enable GPIOs for run time use
+	MX_GPIO_Init();
 
 	// STEP :
-	// Perform action to restart ADC
+	// Perform action to restart ADC and make ready for run time use
 	HAL_ADCEx_EnableVREFINT();
+	HAL_ADC_MspInit(&hadc);
 
 } // END OF wakeFromSleepTasks
+
+
+
+void lowPowerConfig_GPIO(void)
+{
+
+  GPIO_InitTypeDef GPIO_InitStructure;
+  /* Configure all GPIO port pins in Analog Input mode (floating input trigger OFF) */
+  uint32_t PinsToSet = 0x00000000;
+  PinsToSet = ~(SW_CLK_Pin | SW_DIO_Pin);
+  PinsToSet = PinsToSet & GPIO_PIN_All;
+  GPIO_InitStructure.Pin = PinsToSet;
+  GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStructure.Mode = GPIO_MODE_ANALOG;
+
+  // Mode Register set to Analog Mode
+//  GPIOA->MODER = 0xFFFFFFFF;
+//  GPIOB->MODER = 0xFFFFFFFF;
+//  GPIOC->MODER = 0xFFFFFFFF;
+//  GPIOH->MODER = 0xFFFFFFFF;
+
+  // PullUp PullDown Register set to pull-down
+  GPIOA->PUPDR = 0x24AAAAAA;
+  GPIOB->PUPDR = 0xAAAAAAAA;
+  GPIOC->PUPDR = 0xAAAAAAAA;
+  GPIOH->PUPDR = 0xAAAAAAAA;
+
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+} // END OF lowPowerConfig_GPIO
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+
+	if (GPIO_Pin == SW_Zero_Pin)
+	{
+		SuperStarStatus.TimeToSleep = !SuperStarStatus.TimeToSleep;
+	}
+
+
+}

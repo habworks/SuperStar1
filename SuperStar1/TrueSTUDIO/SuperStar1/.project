@@ -243,5 +243,17 @@
       <name>Application/User/tim.c</name>
       <type>1</type>
       <location>PARENT-2-PROJECT_LOC/Src/tim.c</location>
+    </link><link>
+      <name>Application/User/rtc.c</name>
+      <type>1</type>
+      <location>PARENT-2-PROJECT_LOC/Src/rtc.c</location>
+    </link><link>
+      <name>Drivers/STM32L0xx_HAL_Driver/stm32l0xx_hal_rtc.c</name>
+      <type>1</type>
+      <location>PARENT-2-PROJECT_LOC/Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rtc.c</location>
+    </link><link>
+      <name>Drivers/STM32L0xx_HAL_Driver/stm32l0xx_hal_rtc_ex.c</name>
+      <type>1</type>
+      <location>PARENT-2-PROJECT_LOC/Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rtc_ex.c</location>
     </link></linkedResources>
 </projectDescription>

@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/22/20 \n
- * Last Edit Date:  7/24/20 \n
+ * Last Edit Date:  8/7/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -29,19 +29,26 @@
 
 #ifndef _TIMERS_H_
 #define _TIMERS_H_
-
 #include "stdint.h"
 
 
 // DEFINES: TIMER 1 PWM CALCULATION
-#define TIMER1_PWM_PERIOD_COUNT			(10U)
+#define PWM_PERIOD_FULL_COUNT			(10U)
 
-// DEFINES: CONFIGURE
+// DEFINES: ASSOCIATED WITH LPTIM TIMER
+#define LPTIM_IRQ_IN_MILI_SECONDS		(3000U)
+#define SLEEP_TIME_IN_MILI_SECONDS		LPTIM_IRQ_IN_MILI_SECONDS
+#define LPTIM_CALIBRATION_COMPARE		(100U)						// Arbitrary value used in calibration of LPTIM clock
+#define LPTIM_CLOCK_PRESCALER			(32U)						// Value muse equal the LPTIM clock pre-scaler
+#define LPTIM_CYCLE_TO_CALIBRATION		(6U)						// How many cycles of main while loop before issuing a calibration of the LPTIM clock
+
+// DEFINES: BUILD CONFIGURATION
 #define _USE_TIM21_NOT_SYSTICK
 
 
 // FUNCTION PROTOTYPES
 void callbackLPTIM1_IRQ(void);
 void miliSecondDelay(const uint32_t DelayInMiliSeconds);
+uint32_t calibrate_LPTIMCLK(const uint32_t IRQ_InMiliSeconds);
 
 #endif

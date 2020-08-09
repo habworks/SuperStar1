@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/19/20 \n
- * Last Edit Date:  7/25/20 \n
+ * Last Edit Date:  8/3/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -38,6 +38,7 @@
 // DEFINES: FIRMWARE REVISION
 #define FRIMWARE_MAJOR	(0)
 #define FIMRWARE_MINOR	(1)
+
 // DEFINES: TRUE and FALSE
 #ifdef FALSE
 	#warning Trinks & Hab build warning: Note FALSE has already been defined - check previous definition
@@ -56,10 +57,13 @@
 #else
 	#define true 1
 #endif
+
 // DEFINES: MISC
 #define PERCENT_100		(100.0)
 #define ROUND_UP_BY_ONE	(0.5)
 #define ROUND_UP_BY_TEN (10.0)
+
+// DEFINES: BUILD CONFIGURATION
 #define _USE_LOAD_DEFAULT_CAL_VALUE
 #define USE_SLEEP_MODE
 
@@ -89,6 +93,12 @@ typedef struct
 
 typedef struct
 {
+	volatile bool_t			SetToCalibrate;
+	volatile uint32_t		TickCount;
+}Type_Calibrate_LPTCLK;
+
+typedef struct
+{
 	volatile bool_t			TimeToSleep;
 	volatile uint32_t		MiliSecondCounter;		// Used by TIM21 IRQ to create delay
 	volatile float			LED_DutyCylcePercent;	// Duty Cycle LED should run at
@@ -96,6 +106,7 @@ typedef struct
 	float					ADC_DividerRatio;		// Ratio of the ADC Battery Voltage Diver
 	float					ADC_VDDA_Vref;			// Voltage Reference of ADC VDDA Voltage Reference
 	Type_InitTest			InitTest;
+	Type_Calibrate_LPTCLK	Calibrate_LPTCLK;
 }Type_SuperStarStatus;
 
 

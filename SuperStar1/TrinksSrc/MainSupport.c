@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/19/20 \n
- * Last Edit Date:  8/1/20 \n
+ * Last Edit Date:  8/7/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -67,11 +67,13 @@ void main_Init(void)
 
 	// STEP :
 	// Init SuperStar Status
-	// TODO: Trinks set all SuperStar Status members to zero or default state
+	// TODO: Trinks write a function to set all SuperStar Status members to zero or default state / replace with below
 	SuperStarStatus.TimeToSleep = false;
+	SuperStarStatus.Calibrate_LPTCLK.SetToCalibrate = false;
+	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_RESET);
 
 	// STEP :
-	// Setup Flash memory
+	// Setup Load calibration if defined and set Flash memory
 	// TODO: Trinks this is a quick way to program the calibration - think about if you want to do something different
 #ifdef USE_LOAD_DEFAULT_CAL_VALUE
 	writeByteNVM(MEMORY_OFFSET_ADC_CALIBRATION_PROGRAMED, ADC_CALIBRATION_INSTALLED);
@@ -79,6 +81,7 @@ void main_Init(void)
 	writeFloatNVM(MEMORY_OFFSET_DIVIDER_RATIO, 0.3638);
 #endif
 	flashMemoryPwrDwnWhenInSleep();
+
 	// STEP :
 	// Perform the ADC Calibration
 	while(HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED) != HAL_OK);
@@ -103,7 +106,9 @@ void main_Init(void)
 
 	// STEP :
 	// Init the Low Power Timer (LPTIM)
-	//while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 3468) != HAL_OK);
+	uint32_t LPTIM_CompareValueRegister = 0;
+	LPTIM_CompareValueRegister = calibrate_LPTIMCLK(LPTIM_IRQ_IN_MILI_SECONDS);
+	while(HAL_LPTIM_Counter_Start_IT(&hlptim1, 3468) != HAL_OK);
 
 	// STEP :
 	// Init the Timer2
@@ -136,37 +141,35 @@ void main_Init(void)
 * STEP 1:
 * STEP 2:
 * **************************************************************************************************** */
-
-uint8_t TestNum;
-
 void main_WhileLoop(void)
 {
 
-	// HOW TO READ BATTERY VOLTAGE
+	// TEST: HOW TO CALIBRATION OF LPTIM
+	static uint8_t LPTIM_CycleCalibrationCount = 0;
+	LPTIM_CycleCalibrationCount++;
+	if (LPTIM_CycleCalibrationCount >= LPTIM_CYCLE_TO_CALIBRATION)
+	{
+		uint32_t LPTIM_CompareValueRegister;
+		LPTIM_CompareValueRegister = calibrate_LPTIMCLK(LPTIM_IRQ_IN_MILI_SECONDS);
+		while(HAL_LPTIM_Counter_Start_IT(&hlptim1, LPTIM_CompareValueRegister) != HAL_OK);
+		LPTIM_CycleCalibrationCount = 0;
+		POWER_ON_SENSOR_DP();
+		miliSecondDelay(200);
+		POWER_OFF_SESNOR_DP();
+	}
+
+
+	// TEST: HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
 	PresentBatteryVoltage = readBatteryVoltage();
-  // HOW TO CALCULATE DUTY CYCLE OF BATTERY
+
+	// TEST: HOW TO CALCULATE DUTY CYCLE OF BATTERY
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
-
-
-	static uint8_t TestNumONE = 0;
-	static uint8_t TestNumTENTHS = 9;
-
-	static uint8_t ErrorCode = 0;
-	displayErrorCode(ErrorCode);
-	ErrorCode++;
-
-
-	POWER_ON_SENSOR_DP();
-	displayNumONE(TestNumONE);
-	displayNumTENTH(TestNumTENTHS);
-	TestNumONE++;
-	TestNumTENTHS--;;
-
+	// DO SOMETHING
 	ledFLASH_test_1();
 
-
+	// TEST SLEEP
 #ifdef USE_SLEEP_MODE
 	if (SuperStarStatus.TimeToSleep == true)
 	{

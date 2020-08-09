@@ -105,7 +105,7 @@ void segTENTH_OFF (void)
 	OFF_DIG_TENTH_A();
 	OFF_DIG_TENTH_B();
 	OFF_DIG_TENTH_C();
-	OFF_DIG_TENTH_C();
+	OFF_DIG_TENTH_C();	// TODO: Trinks looks like an extra
 	OFF_DIG_TENTH_D();
 	OFF_DIG_TENTH_E();
 	OFF_DIG_TENTH_F();

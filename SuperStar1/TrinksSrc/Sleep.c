@@ -6,7 +6,7 @@
  * Last Edited By:	Hab S. Collector \n
  *
  * @date			7/26/20 \n
- * Last Edit Date:  8/1/20 \n
+ * Last Edit Date:  8/2/20 \n
  * @version       	See Main.C
  *
  * @param Development_Environment \n
@@ -64,7 +64,9 @@ extern Type_SuperStarStatus SuperStarStatus;
 void prepareToSleepTasks(void)
 {
 
-	// Disable external Zero IRQ to avoid re-trigger
+	// STEP :
+	// Disable external Zero IRQ to avoid re-trigger and Clear EXTI line to be sure there is no ongoing interrupt of line
+    __HAL_GPIO_EXTI_CLEAR_IT(SW_Zero_Pin);
 	HAL_NVIC_DisableIRQ(EXTI4_15_IRQn);
 
     // STEP :
@@ -83,7 +85,7 @@ void prepareToSleepTasks(void)
     }
 
 	// STEP :
-	// Set board to its quiescent state
+	// Set board to its quiescent state: LEDs off, 7-Seg off, Sensor off
 	all_LedOFF();
 	segONE_OFF();
 	segTENTH_OFF();
@@ -105,13 +107,13 @@ void prepareToSleepTasks(void)
     // ADC to turn off
     HAL_ADC_MspDeInit(&hadc);
 
-
     // STEP :
     // Disable GPIO
-    __HAL_RCC_GPIOC_CLK_DISABLE();
-    __HAL_RCC_GPIOH_CLK_DISABLE();
     __HAL_RCC_GPIOA_CLK_DISABLE();
     __HAL_RCC_GPIOB_CLK_DISABLE();
+    __HAL_RCC_GPIOC_CLK_DISABLE();
+    __HAL_RCC_GPIOH_CLK_DISABLE();
+
 
     // STEP :
     // Set Flash for low power during sleep
@@ -124,7 +126,7 @@ void prepareToSleepTasks(void)
 
     // STEP:
     // Just to be safe run a few NOP to allow time to settle
-    for (uint8_t NOP_CycleCount = 0; NOP_CycleCount < NOP_CYCLES_BEFORE_SLEEP; NOP_CycleCount++)
+    for (uint16_t NOP_CycleCount = 0; NOP_CycleCount < NOP_CYCLES_BEFORE_SLEEP; NOP_CycleCount++)
     {
     	__NOP();	// Not really necessary - but just to ensure any pending commands are flushed
     }

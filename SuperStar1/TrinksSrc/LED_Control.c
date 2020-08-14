@@ -3,6 +3,7 @@
 #include "stm32l0xx_hal_gpio.h"
 #include "stm32l0xx_hal_rcc.h"
 #include "MainSupport.h"
+#include "Timers.h"
 
 /*
 void init_OSC32_InOutAsGPIO()
@@ -162,26 +163,16 @@ void segTENTH_OFF (void)
 *
 * WHY: To test that all of the LEDs work and bring color to the board.
 *
-* STEP 1: Declare DummyVar and FullCount and set values for each.
-* STEP 2: Turn on all red LEDs.
-* STEP 3: Use a for statement to create the wait time. Create a new variable called DelayCounter. For as long
-* as DelayCounter remains less than FullCount then the lights will stay on. Firstly, set it equal to 0 and then
-* increment it by 1. Then increment DummyVar.
-* STEP 4: Turn off all red LEDs.
-* STEP 5: Turn on all green LEDs.
-* STEP 6: Use a for statement to create the wait time. Create a new variable called DelayCounter. For as long
-* as DelayCounter remains less than FullCount then the lights will stay on. Firstly, set it equal to 0 and then
-* increment it by 1. Then increment DummyVar.
-* STEP 7: Turn off all green LEDs.
+* STEP 1: Turn on all red LEDs.
+* STEP 2: Use miliSecondDelay function (from Timers.h) to create a duration of which the red LEDs will be on.
+* STEP 3: Turn off all red LEDs.
+* STEP 4: Turn on all green LEDs.
+* STEP 5: Use miliSecondDelay function (from Timers.h) to create a duration of which the green LEDs will be on.
+* STEP 6: Turn off all green LEDs.
 * **********************************************************************************************************/
 void ledFLASH_test_1 (void)
 {
 	//STEP 1:
-	//Declare DummyVar and FullCount and set values for each.
-	volatile uint32_t DummyVar = 0;
-	volatile uint32_t FullCount = 400000;
-
-	//STEP 2:
 	//Turn on all red LEDs.
 	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_SET);
@@ -195,13 +186,10 @@ void ledFLASH_test_1 (void)
 	ON_RLED8();
 
 	//STEP 3:
-	/*Use a for statement to create the wait time. Create a new variable called DelayCounter. For as long
-	as DelayCounter remains less than FullCount then the lights will stay on. Firstly, set it equal to 0 and then
-	increment it by 1. Then increment DummyVar.*/
-	for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-	  {
-		  DummyVar++;
-	  }
+	//Use miliSecondDelay function (from Timers.h) to create a duration of which the red LEDs will be on.
+
+	uint32_t DelayInMiliSeconds = 1000;
+	miliSecondDelay(DelayInMiliSeconds);
 
 	//STEP 4:
 	//Turn off all red LEDs.
@@ -228,13 +216,9 @@ void ledFLASH_test_1 (void)
 	ON_GLED8();
 
 	//STEP 6:
-	/*Use a for statement to create the wait time. Create a new variable called DelayCounter. For as long
-	as DelayCounter remains less than FullCount then the lights will stay on. Firstly, set it equal to 0 and then
-	increment it by 1. Then increment DummyVar*/
-	for(uint32_t DelayCounter = 0; DelayCounter < FullCount; DelayCounter++)
-		  {
-			  DummyVar++;
-		  }
+	// Use miliSecondDelay function (from Timers.h) to create a duration of which the green LEDs will be on
+	DelayInMiliSeconds = 1000;
+	miliSecondDelay(DelayInMiliSeconds);
 
 	//STEP 7:
 	// Turn off all green LEDs.
@@ -246,7 +230,8 @@ void ledFLASH_test_1 (void)
 	OFF_GLED6();
 	OFF_GLED7();
 	OFF_GLED8();
-}
+
+}  // END OF ledFLASH_test
 
 
 
@@ -627,3 +612,34 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 
 } // END OF displayErrorCode
 
+
+
+/***********************************************************************************************************
+* @brief Distance Display
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended display the distance from the ideal park to the user's current position
+* @note The max distance that can be displayed is 9.9 (approx. 10).
+* @note The distance in the hundreds place will have to be rounded.
+*
+* @param float
+* @return true or false
+*
+* WHY: The purpose of the segments are to display the distance from the device to the park .\n
+*
+* STEP 1:
+* STEP 2:
+* STEP 3:
+* **********************************************************************************************************/
+bool_t distanceDisplay (Distance)
+{
+	if ((Distance > 9) || (Distance <0))
+		{
+		segONE_OFF();
+		segTENTH_OFF();
+		return (false);
+		}
+	float
+}

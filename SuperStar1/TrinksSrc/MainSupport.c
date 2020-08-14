@@ -146,6 +146,9 @@ void main_WhileLoop(void)
 	displayErrorCode(ErrorCode);
 	ErrorCode++;
 
+	float Distance;
+	bool_t distnaceDisplay(float);
+	int Num = (uint8_t RealNum);
 
 	POWER_ON_SENSOR_DP();
 	//displayNumONE(TestNumONE);

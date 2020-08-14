@@ -100,10 +100,12 @@ void init_OSC32_InOutAsGPIO();
 bool_t displayNumONE(uint8_t DigitToDisplayONE);
 bool_t displayNumTENTH(uint8_t DigitToDisplayTENTH);
 bool_t displayErrorCode(uint8_t);
+bool_t distanceDisplay (Distance);
 void segONE_OFF (void);
 void segTENTH_OFF (void);
 void all_LedOFF (void);
 void ledFLASH_test_1 (void);
+
 
 
 #endif

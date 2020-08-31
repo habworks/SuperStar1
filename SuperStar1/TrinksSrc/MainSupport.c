@@ -172,7 +172,7 @@ void main_WhileLoop(void)
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
 
-	// DO SOMETHING - Trinks testing
+	// DO SOMETHING - Trinks testing here
 	float UpdateAvgVolt;
 	static float BatteryVoltage = 9;
 	UpdateAvgVolt = rollingAverageBatVolt (BatteryVoltage);

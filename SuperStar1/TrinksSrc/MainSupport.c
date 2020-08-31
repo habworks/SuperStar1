@@ -34,6 +34,7 @@
 #include "NV_Memory.h"
 #include "Timers.h"
 #include "Sleep.h"
+#include "DistanceSensor.h"
 #include "adc.h"
 #include "stm32l0xx_hal_adc_ex.h"
 #include "lptim.h"
@@ -41,6 +42,7 @@
 
 // GLOBAL VARS
 volatile Type_SuperStarStatus SuperStarStatus;
+
 
 
 
@@ -167,7 +169,13 @@ void main_WhileLoop(void)
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
 	// DO SOMETHING
-	ledFLASH_test_1();
+	float UpdateAvgVolt;
+	static float BatteryVoltage = 9;
+	UpdateAvgVolt = rollingAverageBatVolt (BatteryVoltage);
+	BatteryVoltage--;
+
+	realDistance(4.0157);
+
 
 	// TEST SLEEP
 #ifdef USE_SLEEP_MODE
@@ -185,8 +193,8 @@ void main_WhileLoop(void)
 
 		SuperStarStatus.TimeToSleep = false;
 	}
+	displayCaution();
 #endif
-
 
 } // END OF FUNCTION init_WhileLoop
 

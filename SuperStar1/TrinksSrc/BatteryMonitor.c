@@ -61,3 +61,55 @@ float readBatteryVoltage(void)
 	return(BatteryVoltage);
 	// TODO: On read fail do you want to return anything different
 }
+
+
+
+/***********************************************************************************************************
+* @brief Rolling Average Voltage
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to calculate the rolling, or constantly updated, average of distance in the array
+* @note the distance will be collected from the sensor x times a second.
+*
+* @param NowVolatge
+* @return AverageVoltage
+*
+* WHY: Allow user to visually see when they need to replay their batter
+*
+* STEP 1: Store a new value
+* STEP 2: Calculate the sum of the array.
+* STEP 3: Calculate the average.
+* STEP 4: Increment StoredIndex and test.
+* STEP 5: Return the average.
+* **********************************************************************************************************/
+float rollingAverageBatVolt (float NowVoltage)
+{
+	static float VoltArray[VOLT_ARRAY_SIZE] = {0};
+		static uint8_t StoredIndex = 0;
+		float AverageVoltage;
+		float Sum_OfVoltage = 0;
+
+		//STEP 1: Store a new value.
+		VoltArray[StoredIndex] = NowVoltage;
+
+		//STEP 2: Calculate the sum of the array.
+		for(uint8_t Index = 0; Index < VOLT_ARRAY_SIZE; Index++)
+		{
+			Sum_OfVoltage = Sum_OfVoltage + VoltArray[Index];
+		}
+
+		//STEP 3: Calculate the average.
+		AverageVoltage = Sum_OfVoltage / VOLT_ARRAY_SIZE;
+
+		//STEP 4: Increment StoredIndex and test.
+		StoredIndex++;
+		if(StoredIndex > VOLT_ARRAY_SIZE - 1)
+		{
+			StoredIndex = 0;
+		}
+
+		//STEP 5: Return the average.
+		return (AverageVoltage);
+}

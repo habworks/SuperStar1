@@ -105,7 +105,6 @@ void segTENTH_OFF (void)
 	OFF_DIG_TENTH_A();
 	OFF_DIG_TENTH_B();
 	OFF_DIG_TENTH_C();
-	OFF_DIG_TENTH_C();	// TODO: Trinks looks like an extra
 	OFF_DIG_TENTH_D();
 	OFF_DIG_TENTH_E();
 	OFF_DIG_TENTH_F();
@@ -582,4 +581,118 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 	return (true);
 
 } // END OF displayErrorCode
+
+
+
+/***********************************************************************************************************
+* @brief Display Stop
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to have all the LEDs turn red
+* @note This will indicate to the user that they have reached their desired minimum distance for their park
+* and need to stop moving.
+*
+* @param none
+* @return none
+*
+* WHY: The user needs a visual indicator that they need to stop moving. Similar a regular stop sign or red light\n
+*
+* STEP 1: Turn on all red LEDs
+* **********************************************************************************************************/
+void displayStop (void)
+{
+	//STEP 1: Turn on all red LEDs//
+	ON_RLED1();
+	ON_RLED2();
+	ON_RLED2();
+	ON_RLED3();
+	ON_RLED4();
+	ON_RLED5();
+	ON_RLED6();
+	ON_RLED7();
+	ON_RLED8();
+
+} //END OF displayStop
+
+
+
+/***********************************************************************************************************
+* @brief Display Go
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to have all the LEDs turn green
+* @note This will indicate to the user that they have not yet reached their desired minimum distance for their park
+* and need to continue motion.
+*
+* @param none
+* @return none
+*
+* WHY: The user needs a visual indicator that they need to continue moving. Similar to a regular green light\n
+*
+* STEP 1: Turn on all green LEDs
+* **********************************************************************************************************/
+void displayGo (void)
+{
+	//STEP 1: Turn on all green LEDs
+	ON_GLED1();
+	ON_GLED2();
+	ON_GLED3();
+	ON_GLED4();
+	ON_GLED5();
+	ON_GLED6();
+	ON_GLED7();
+	ON_GLED8();
+
+} //END OF displayGo
+
+
+
+/***********************************************************************************************************
+* @brief Display Caution
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to have all the LEDs turn yellow
+* @note This will indicate to the user that they are in range of their desired minimum distance for their park
+* and need to be prepared to stop
+* @note When red and green LEDs turn on simultaneously, then a yellow color will be present.
+*
+* @param none
+* @return none
+*
+* WHY: The user needs a visual indicator that they need to proceed towards their target distance with caution due to
+* the proximity and speed at which they are approaching their desired park. Similar to a yellow light
+* STEP 1: Turn on all red LEDs.
+* STEP 2: Turn on all green LEDs.
+* **********************************************************************************************************/
+void displayCaution (void)
+{
+	//STEP 1: Turn on all red LEDs
+	ON_RLED1();
+	ON_RLED2();
+	ON_RLED3();
+	ON_RLED4();
+	ON_RLED5();
+	ON_RLED6();
+	ON_RLED7();
+	ON_RLED8();
+	//STEP 2: Turn on all green LEDs
+	ON_GLED1();
+	ON_GLED2();
+	ON_GLED3();
+	ON_GLED4();
+	ON_GLED5();
+	ON_GLED6();
+	ON_GLED7();
+	ON_GLED8();
+
+} //END OF displayCaution
+
+
+
 

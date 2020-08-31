@@ -100,6 +100,8 @@ typedef struct
 typedef struct
 {
 	volatile bool_t			TimeToSleep;
+	volatile uint16_t		RoundTripTicksToTarget;	// Distance Measure Time to target and back
+	volatile uint16_t		DistanceMeasureTimeOut;
 	volatile uint32_t		MiliSecondCounter;		// Used by TIM21 IRQ to create delay
 	volatile float			LED_DutyCylcePercent;	// Duty Cycle LED should run at
 	float					ZeroOffset;				// Value measured in feet

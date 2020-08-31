@@ -118,8 +118,6 @@ void callbackLPTIM1_IRQ(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 {
 
-//	HAL_GPIO_TogglePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin);
-
 	// TIM2 IRQ HANDLER
 	if (TimerInIRQ->Instance == TIM2)
 	{
@@ -127,6 +125,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 		volatile static uint8_t PWM_TotalCount = 0;
 		volatile uint8_t PWM_AsCount;
 		//SuperStarStatus.Calibrate_LPTCLK.TickCount++;
+
+		// STEP :
+		// Increment distance time counter
+		SuperStarStatus.DistanceMeasureTimeOut++;
+		SuperStarStatus.RoundTripTicksToTarget++;
 
 		// STEP :
 		// Determine the PWM On time as a count (0 - 10) value
@@ -141,10 +144,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 
 		// STEP :
 		// Determine if this count is on the high (set) or low side of the PWM (clear)
+/*
 		if (PWM_OnCount <= PWM_AsCount)
 			HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_SET);
 		else
 			HAL_GPIO_WritePin(Sens_Echo_GPIO_Port, Sens_Echo_Pin, GPIO_PIN_RESET);
+*/
 
 		// STEP :
 		// Determine if time to start a new period of PWM - If so reset PWM On count and total PWM count

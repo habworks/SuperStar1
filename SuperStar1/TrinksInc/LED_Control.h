@@ -104,7 +104,10 @@ void segONE_OFF (void);
 void segTENTH_OFF (void);
 void all_LedOFF (void);
 void ledFLASH_test_1 (void);
-
+void dsiplayGo (void);
+void displayStop (void);
+void displayCaution (void);
+void realDistance (float);
 
 #endif
 /* need to test all LED for BOTH COLORS RED AND GREEN

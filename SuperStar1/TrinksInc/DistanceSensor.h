@@ -1,9 +1,9 @@
 /** ****************************************************************************************************
- * @file 			Timers.h
+ * @file 			DistanceSensor.h
  * @brief			This Header file used to support uC Peripheral: Low Power Timer (LPTIM), Timer2 (TIM2),  Timer21 (TIM21)
  * ****************************************************************************************************
- * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * @author			Trinkie H. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/22/20 \n
  * Last Edit Date:  8/7/20 \n
@@ -26,22 +26,17 @@
  *
  * @copyright		IMR Engineering
  * **************************************************************************************************** */
+#ifndef DISTANCE_SENSOR_H
+#define DISTANCE_SENSOR_H
 
-#ifndef _BATTERY_MONITOR_H_
-#define _BATTERY_MONITOR_H_
-
-// DEFINES
-#define ADC_FULL_SCALE_VALUE			0x03FF
-#define VOLTAGE_DIVIDER_RA				57600.0
-#define VOLTAGE_DIVIDER_RB				100000.0
-#define DEFAULT_VOLTAGE_DIVIDER_RATIO	(float)(VOLTAGE_DIVIDER_RA/(VOLTAGE_DIVIDER_RA + VOLTAGE_DIVIDER_RB))
-#define DEFAULT_VOLTAGE_VDDA_REFERENCE	3.300
-#define BATTERY_NOMINAL_VOLTAGE			9.000
-#define VOLT_ARRAY_SIZE				5
-
-
-// FUNCTION PROTOTYPES
-float readBatteryVoltage(void);
-float rollingAverageBatVolt (float NowVoltage);
+//DEFINES
+#define STOP_DISTANCE_THRESHOLD			0 //STOP WHEN USER REACHED THEIR SET PARK 0.0 - 0.5
+#define CAUTION_DISTANCE_THRESHOLD		3 //SLOW WHEN USER IS WITHIN 3 FEET OF THEIR SET PARK 0.5 - 3.9
+#define GO_DISTANCE_THRESHOLD			4 //PROCEED FREELY WHILE USER IS WITHIN 3.9 - 9.9 or max
+#define DISTANCE_ARRAY_SIZE				5
+#define MAX_DIST						9.9
+#define MIN_DIST						0.0
+//FUNCTION PROTOTYPES
+float rollingAverageTargetDistance (float NewDistance);
 
 #endif

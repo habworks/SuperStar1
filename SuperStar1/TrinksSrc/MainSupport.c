@@ -39,6 +39,7 @@
 #include "stm32l0xx_hal_adc_ex.h"
 #include "lptim.h"
 #include "tim.h"
+#include "DistanceSensor.h"
 
 // GLOBAL VARS
 volatile Type_SuperStarStatus SuperStarStatus;
@@ -164,7 +165,9 @@ void main_WhileLoop(void)
 
 	// TEST: HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
-	PresentBatteryVoltage = readBatteryVoltage();
+	float UpdateAvgVolt;
+	PresentBatteryVoltage = readBatteryVoltage(); //i think this function converts analog to digital
+	UpdateAvgVolt = rollingAverageBatVolt (PresentBatteryVoltage);
 
 
 
@@ -172,73 +175,16 @@ void main_WhileLoop(void)
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
 
-	// DO SOMETHING - Trinks testing here
-	float UpdateAvgVolt;
-	static float BatteryVoltage = 9;
-	UpdateAvgVolt = rollingAverageBatVolt (BatteryVoltage);
-	BatteryVoltage--;
-
-	realDistance(4.0157);
-
-
-	// TODO: Trinks make this into a function named distanceToTarget.  Function should accept nothing and return a float that is distance to target.
-	// A timeout is a type of error.  It means this was supposed to take less than x amount of time, but it took more.  Its a way if checking if something went wrong.
-	// If a timesout occurs return a unique value that we can check for as a timeout error condition: 99999.99
-	// TEST: HOW TO MEASURE DISTANCE
-	bool_t EchoReceived;
-	bool_t DistanceSensorError = false;  // TODO: When you make your function - do you really need this or can you just return the error value
-	volatile float TimeToTarget;
-	volatile float DistanceToTarget;
-
-	// Power on the sensor and give it time to settle
-	POWER_ON_SENSOR_DP();
-	miliSecondDelay(2000);  // TODO: Determine by experiment the shortest time I can wait after power on before making a measurement
-
-	// Create a trigger pulse.  Pulse width to be at least 10us wide.
-	SuperStarStatus.DistanceMeasureTimeOut = 0;
-	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_SET);
-	miliSecondDelay(1);
-	HAL_GPIO_WritePin(Sens_Trig_GPIO_Port, Sens_Trig_Pin, GPIO_PIN_RESET);
-
-	// Set timeout time to zero - will begin to measure the timeout
-	SuperStarStatus.DistanceMeasureTimeOut = 0;
-
-	// After Trigger Pulse wait for echo.  Wait for start of Echo - Echo going high
-	do
-	{
-		if (SuperStarStatus.DistanceMeasureTimeOut > 10000)  // TODO: Trinks determine a good timeout value to use.  This was just chosen arbitrarily
-		{
-			DistanceSensorError = true;
-			break;
-		}
-		EchoReceived = HAL_GPIO_ReadPin(Sens_Echo_GPIO_Port, Sens_Echo_Pin);
-	} while(EchoReceived == false);
-
-	// Zero to begin measure - tick time measure to target and back is between echo rising and falling edges
-	SuperStarStatus.RoundTripTicksToTarget = 0;
-
-	// Wait for end of Echo - Echo goes low
-	if (DistanceSensorError == false)
-	{
-		do
-		{
-			if (SuperStarStatus.DistanceMeasureTimeOut > 10000) // TODO: Trinks use defines for all constants in this function
-			{
-				DistanceSensorError = true;
-				break;
-			}
-			EchoReceived = HAL_GPIO_ReadPin(Sens_Echo_GPIO_Port, Sens_Echo_Pin);
-		} while (EchoReceived == true);
-	}
-
-	// Capture the time to target: Convert ticks to time.  Time to target is 1/2 this time.
-	TimeToTarget = ((SuperStarStatus.RoundTripTicksToTarget * 100e-6)/ 2);
-
-	// Turn off power to the sensor
+	// TEST: HOW TO READ DISTANCE TO TARGET
+	float PresentDistanceToTarget;
+	float FilterDistanceToTarget;
 	POWER_OFF_SESNOR_DP();
+ 	PresentDistanceToTarget = distanceToTarget();
+	FilterDistanceToTarget =  rollingAverageTargetDistance(PresentDistanceToTarget);
+	realDistance(FilterDistanceToTarget);
 
-	// Calculate distance to target in feet: Formula is Distance = Speed x Time.  Use speed of sound in ft/s
-	DistanceToTarget = 1125.3 * TimeToTarget;  // 1125.3 if Speed of sound in ft/s - ft/s x s = ft
+
+
 
 
 

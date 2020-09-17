@@ -115,5 +115,6 @@ typedef struct
 // FUNCTION PROTOTYPES
 void main_Init(void);
 void main_WhileLoop(void);
+float distanceToTarget (void);
 
 #endif

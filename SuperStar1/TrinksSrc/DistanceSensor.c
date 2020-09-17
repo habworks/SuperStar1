@@ -30,8 +30,9 @@
 #include "DistanceSensor.h"
 #include "MainSupport.h"
 #include "LED_Control.h"
+#include "Timers.h"
 
-
+extern Type_SuperStarStatus SuperStarStatus;
 
 /***********************************************************************************************************
 * @brief Rolling average Target Distance
@@ -129,7 +130,7 @@ void realDistance (float Distance)
 
 	//STEP 5: RoundNum will add 0.05 to the fraction. This will allow for the tenth place to increment if the hundredths place
 	//is greater or equal to five example, 0.45 is around .50, so to display .50, .05 must be added to the fraction.
-	RoundNum = Fraction + 0.05;
+	RoundNum = Fraction + ROUND_ASSIST;
 
 	//STEP 6: Multiply the fraction by ten to make it an integer that the seven segment can display.
 	RoundNum = RoundNum * 10;
@@ -141,3 +142,81 @@ void realDistance (float Distance)
 } // END OF realDistance
 
 
+
+/***********************************************************************************************************
+* @brief Distance to Target // How to Measure Distance
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note Distance = speed * time
+* @note Speed of sound = 1125.3
+*
+* @param void
+* @return float
+*
+* WHY: Display distance from the target on the seven segment in real time
+* STEP 1: Power on the sensor and give it time to settle.
+* STEP 2: Create a trigger pulse.
+* STEP 3: Begin to measure the timeout from 0.
+* STEP 4: Wait for Echo to go high. If there is no Echo, then break and send Error Code. If the Echo appears, then continue.
+* STEP 5: Begin counting from the number of ticks the Echo takes to get to target from 0.
+* STEP 6: Wait for Echo to go low. If it doens't go low, then break and send Error Code. If it does, then continue.
+* STEP 7: Convert ticks to time. divide by two because the sensor records a round trip.
+* STEP 8: Turn off power to the sensor. This saves power and allows for the sensor to not be on when there is no displacement to measure.
+* STEP 9: Calculate distance to target in feet
+* **********************************************************************************************************/
+float distanceToTarget (void)
+{
+	bool_t EchoReceived;
+	bool_t DistanceSensorError = false;  // TODO: When you make your function - do you really need this or can you just return the error value
+	volatile float TimeToTarget;
+
+
+	//STEP 1: Power on the sensor and give it time to settle
+	POWER_ON_SENSOR_DP();
+	miliSecondDelay(500);  // TODO: Determine by experiment the shortest time I can wait after power on before making a measurement
+
+	//STEP 2: Create a trigger pulse.  Pulse width to be at least 10us wide.
+	SENSOR_TRIGGER_HIGH();
+	miliSecondDelay(1);
+	SENSOR_TRIGGER_LOW();
+
+	//STEP 3: Set timeout time to zero - will begin to measure the timeout
+	SuperStarStatus.DistanceMeasureTimeOut = 0;
+
+	//STEP 4: Echo Timeout... If there is no Echo, then break and send Error Code. If the Echo appears then continue.
+	do
+	{
+		if (SuperStarStatus.DistanceMeasureTimeOut > 10000)  // TODO: Trinks determine a good timeout value to use.  This was just chosen arbitrarily
+			{
+				return(MEASURE_ERROR);
+			}
+		EchoReceived = SENSOR_ECHO_RECIVED();
+	}while(EchoReceived == false);
+
+	//STEP 5: Zero to begin measure - tick time measure to target and back is between echo rising and falling edges
+	SuperStarStatus.RoundTripTicksToTarget = 0;
+
+	//STEP 6: Wait for Echo to go low. If it doens't go low, then break and send Error Code. If it does, then continue.
+	do
+	{
+		if (SuperStarStatus.DistanceMeasureTimeOut > 10000) // TODO: Trinks use defines for all constants in this function
+			{
+				return (MEASURE_ERROR);
+			}
+		EchoReceived = SENSOR_ECHO_RECIVED();
+	}while (EchoReceived == true);
+
+	//STEP 7: Capture the time to target: Convert ticks to time.  Time to target is 1/2 this time.
+	TimeToTarget = ((SuperStarStatus.RoundTripTicksToTarget * TICKS_TO_SECONDS)/ 2);
+
+	// STEP 8: Turn off power to the sensor
+	POWER_OFF_SESNOR_DP();
+
+	//STEP 9: Calculate distance to target in feet: Formula is Distance = Speed x Time.  Use speed of sound in ft/s
+	float DistanceToTarget;
+	DistanceToTarget = SPEED_OF_SOUND * TimeToTarget;  // 1125.3 if Speed of sound in ft/s - ft/s x s = ft
+	return(DistanceToTarget);
+
+} //END HERE

@@ -39,6 +39,7 @@
 #include "stm32l0xx_hal_adc_ex.h"
 #include "lptim.h"
 #include "tim.h"
+#include "DistanceSensor.h"
 
 // GLOBAL VARS
 volatile Type_SuperStarStatus SuperStarStatus;
@@ -164,7 +165,9 @@ void main_WhileLoop(void)
 
 	// TEST: HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
-	PresentBatteryVoltage = readBatteryVoltage();
+	float UpdateAvgVolt;
+	PresentBatteryVoltage = readBatteryVoltage(); //i think this function converts analog to digital
+	UpdateAvgVolt = rollingAverageBatVolt (PresentBatteryVoltage);
 
 
 
@@ -172,13 +175,15 @@ void main_WhileLoop(void)
 	SuperStarStatus.LED_DutyCylcePercent = ((PresentBatteryVoltage/BATTERY_NOMINAL_VOLTAGE) * PERCENT_100);
 
 
-	// DO SOMETHING - Trinks testing here
-	float UpdateAvgVolt;
-	static float BatteryVoltage = 9;
-	UpdateAvgVolt = rollingAverageBatVolt (BatteryVoltage);
-	BatteryVoltage--;
+	// TEST: HOW TO READ DISTANCE TO TARGET
+	float PresentDistanceToTarget;
+	float FilterDistanceToTarget;
+	POWER_OFF_SESNOR_DP();
+ 	PresentDistanceToTarget = distanceToTarget();
+	FilterDistanceToTarget =  rollingAverageTargetDistance(PresentDistanceToTarget);
+	realDistance(FilterDistanceToTarget);
 
-	realDistance(4.0157);
+
 
 
 

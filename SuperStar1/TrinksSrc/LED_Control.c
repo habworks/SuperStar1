@@ -6,9 +6,135 @@
 #include "Timers.h"
 
 
+/***********************************************************************************************************
+* @brief Yellow LEDs ON and OFF
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to turn an the yellow LEDs by turning on the green and red LEDs
+*
+* @param none
+* @return none
+*
+* WHY: Make code more efficient by creating a default function that turns on the yellow LEDs with a single call.
+*
+* STEP 1: Create functions for yellow LEDS to be on by setting the correct green and yellow LEDS on.
+* **********************************************************************************************************/
+//YELLOW LED 1 ON AND OFF
+void onYellowLED_1 (void)
+{
+	ON_RLED1();
+	ON_GLED1();
+}
+void offYellowLED_1 (void)
+{
+	OFF_RLED1();
+	OFF_GLED1();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 2 ON AND OFF
+void onYellowLED_2 (void)
+{
+	ON_RLED2();
+	ON_GLED2();
+}
+void offYellowLED_2 (void)
+{
+	OFF_RLED2();
+	OFF_GLED2();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 3 ON AND OFF
+void onYelllowLED_3 (void)
+{
+	ON_RLED3();
+	ON_GLED3();
+}
+void offYellowLED_3 (void)
+{
+	OFF_RLED3();
+	OFF_GLED3();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 4 ON AND OFF
+void onYelllowLED_4 (void)
+{
+	ON_RLED4();
+	ON_GLED4();
+}
+void offYellowLED_4 (void)
+{
+	OFF_RLED4();
+	OFF_GLED4();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 5 ON AND OFF
+void onYelllowLED_5 (void)
+{
+	ON_RLED5();
+	ON_GLED5();
+}
+void offYellowLED_5 (void)
+{
+	OFF_RLED5();
+	OFF_GLED5();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 6 ON AND OFF
+void onYelllowLED_6 (void)
+{
+	ON_RLED3();
+	ON_GLED3();
+}
+void offYellowLED_6 (void)
+{
+	OFF_RLED6();
+	OFF_GLED6();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 7 ON AND OFF
+void onYelllowLED_7 (void)
+{
+	ON_RLED7();
+	ON_GLED7();
+}
+void offYellowLED_7 (void)
+{
+	OFF_RLED7();
+	OFF_GLED7();
+}
+
+///////////////////////////////////
+
+//YELLOW LED 8 ON AND OFF
+void onYelllowLED_8 (void)
+{
+	ON_RLED8();
+	ON_GLED8();
+}
+void offYellowLED_8 (void)
+{
+	OFF_RLED8();
+	OFF_GLED8();
+}
+// END OF yellowLEDs_ONandOFF
+
 
 /***********************************************************************************************************
-* @brief Green and Red LEDs all off
+* @brief all-LEDoff
 *
 * @author 			Trinkie H. Collector \n
 * Last Edited By:  	Trinkie H. Collector \n
@@ -692,6 +818,190 @@ void displayCaution (void)
 	ON_GLED8();
 
 } //END OF displayCaution
+
+
+
+/***********************************************************************************************************
+* @brief StartUpRoutine
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note The function is intend to allow for the colors to circle and follow after one another
+* @note The first color is red, the second color is green, and the third color is yellow.
+* @note	The function uses bit shifting. Each placement of the bit (and therefore a certain value)
+* 		is to be synonymous to a different LED.
+*
+* @param none
+* @return none
+*
+* WHY: The device should have a decorative routine for when a user's motion is first detected.
+* STEP 1: Define the variables for each color LED.
+* STEP 2: Set all the values equal to 1 as a starting point/position that will allow for shifting.
+* STEP 3: Create a for loop so Red will start first and when the conditions are met, then green and yellow will.
+* STEP 4: The for loop will loop 12 times. 12 loops is a full cycle of color change.
+* STEP 5: The GreenByte will not begin its color revolution until the second time the function loops.
+* STEP 6: The YellowByte will not begin until the red has looped four times and the green has looped twice.
+* **********************************************************************************************************/
+void startUpRoutine(void)
+{
+	//STEP 1: Define the variables for each color LED and set the values equal to 0 as a starting point/position.
+	//STEP 2: Set all the values equal to 1 as a starting point/position that will allow for shifting
+	uint16_t RedByte = 0X01;
+	uint16_t GreenByte = 0X01;
+	uint16_t YellowByte = 0X01;
+
+
+
+	//STEP 3: Create a for loop so Red will start first and when the conditions are met, then green and yellow will.
+	//STEP 4: The for loop will loop 12 times. 12 loops is a full cycle of color change.
+
+	for (uint16_t LedBitPosition = 0; LedBitPosition < 16; LedBitPosition++)
+	{
+		RedByte = RedByte << 1;
+		miliSecondDelay(15);
+		if (RedByte > 0x02)
+		{
+			//STEP 5: The GreenByte will not begin its color revolution until the second time the function loops.
+			GreenByte = GreenByte << 1;
+			miliSecondDelay(15);
+		}
+		if (RedByte > 0x08)
+		{
+			//STEP 6: The YellowByte will not begin until the red has looped four times and the green has looped twice.
+			YellowByte = YellowByte << 1;
+			miliSecondDelay(15);
+		}
+		ledOnPlacement(RedByte, GreenByte, YellowByte);
+	}
+	all_LedOFF();
+} //END OF startUpRoutine
+
+
+
+/***********************************************************************************************************
+* @brief ledOnPlacement
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note There has to be three different switch statements because there are three variables.
+* @note Each case represents a uint16_t number presented in Hex (0xn)
+* @note There are binary conversions as comments to the side of each case.
+*
+* @param uint16_t RedLedByte, uint16_t GreenLedByte, uint16_t YellowLedByte
+* @return none
+*
+* WHY: Depending on the position/placement of each bit, something different must occur for each case.
+* STEP 1: Create a switch statement for the LEDs
+* STEP 2: Red switch statement
+* STEP 3: Green switch statement
+* STEP 4: Yellow switch statement
+* **********************************************************************************************************/
+void ledOnPlacement(uint16_t RedLedByte, uint16_t GreenLedByte, uint16_t YellowLedByte)
+{
+	//STEP 1: Create a switch statement for the LEDs
+
+
+	//STEP 2: Red switch statement
+	switch (RedLedByte)
+		{
+		case 0X01: //0000 0000 0000 0001
+			ON_RLED1();			//RED
+			break;
+		case 0X02: //0000 0000 0000 0010
+			ON_RLED2();			//RED
+		case 0X04: //0000 0000 0000 0100
+			ON_RLED3();			//RED
+			break;
+		case 0X08: //0000 0000 0000 1000
+			ON_RLED4();			//RED
+			break;
+		case 0X10: //0000 0000 0001 0000
+			ON_RLED5();			//RED
+			break;
+		case 0X20: //0000 0000 0010 0000
+			ON_RLED6();			//RED
+			break;
+		case 0X40: //0000 0000 0100 0000
+			ON_RLED7();			//RED
+			break;
+		case 0X80: //0000 0000 1000 0000
+			ON_RLED8();			//RED
+			break;
+		}
+
+
+	//STEP 3: Green switch statement
+	switch (GreenLedByte)
+		{
+		case 0X04: //0000 0000 0000 0100
+			OFF_RLED1();		//FOR GREEN
+			ON_GLED1();
+			break;
+		case 0X08: //0000 0000 0000 1000
+			OFF_RLED2();		//FOR GREEN
+			ON_GLED2();
+			break;
+		case 0X10: //0000 0000 0001 0000
+			OFF_RLED3();		//FOR GREEN
+			ON_GLED3();
+			break;
+		case 0X20: //0000 0000 0010 0000
+			OFF_RLED4();		//FOR GREEN
+			ON_GLED4();
+			break;
+		case 0X40: //0000 0000 0100 0000
+			OFF_RLED5();		//FOR GREEN
+			ON_GLED5();
+			break;
+		case 0X80: //0000 0000 1000 0000
+			OFF_RLED6();		//FOR GREEN
+			ON_GLED6();
+			break;
+		case 0X100: //0000 0001 0000 0000
+			OFF_RLED7();		//FOR GREEN
+			ON_GLED7();
+			break;
+		case 0X200: //0000 0010 0000 0000
+			OFF_RLED8();		//FOR GREEN
+			ON_GLED8();
+			break;
+		}
+
+
+		//STEP 4: Yellow switch statement
+	switch (YellowLedByte)
+		{
+		case 0X10: //0000 0000 0001 0000
+			ON_RLED1();			//FOR YELLOW
+			break;
+		case 0X20: //0000 0000 0010 0000
+			ON_RLED2();			//FOR YELLOW
+			break;
+		case 0X40: //0000 0000 0100 0000
+			ON_RLED3();			//FOR YELLOW
+			break;
+		case 0X80: //0000 0000 1000 0000
+			ON_RLED4();			//FOR YELLOW
+			break;
+		case 0X100: //0000 0001 0000 0000
+			ON_RLED5();			//FOR YELLOW
+			break;
+		case 0X200: //0000 0010 0000 0000
+			ON_RLED6();			//FOR YELLOW
+			break;
+		case 0X400: //0000 0100 0000 0000
+			ON_RLED7();			//FOR YELLOW
+			break;
+		case 0X800: //0000 1000 0000 0000
+			ON_RLED8();			//FOR YELLOW
+			break;
+		}
+
+}//END OF ledOnPlacement
+
+
 
 
 

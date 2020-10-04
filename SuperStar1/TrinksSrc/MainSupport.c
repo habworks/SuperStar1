@@ -146,6 +146,32 @@ void main_Init(void)
 * **************************************************************************************************** */
 void main_WhileLoop(void)
 {
+		startUpRoutine();
+
+		//READ BATTERY VOLTAGE
+		float PresentBatteryVoltage;
+		float UpdateAvgVoltage;
+		PresentBatteryVoltage = readBatteryVoltage();
+		rollingAverageBatVolt(UpdateAvgVoltage);
+
+		//GET DIST
+		float PresentDistanceToTarget;
+		float FilterDistanceToTarget;
+		POWER_OFF_SESNOR_DP();
+		PresentDistanceToTarget = distanceToTarget();
+		FilterDistanceToTarget = rollingAverageTargetDistance(PresentDistanceToTarget);
+
+		//DISPLAY
+		realDistance(FilterDistanceToTarget);
+
+		//SLEEP
+		float PresentDistance;
+		miliSecondDelay(15); //experimental value for now
+				if((PresentDistance = FilterDistanceToTarget))
+				{
+					POWER_OFF_SESNOR_DP();
+				}
+		}
 
 //	// TEST: HOW TO CALIBRATION OF LPTIM
 //	static uint8_t LPTIM_CycleCalibrationCount = 0;
@@ -163,7 +189,7 @@ void main_WhileLoop(void)
 
 
 
-	// TEST: HOW TO READ BATTERY VOLTAGE
+	/* TEST: HOW TO READ BATTERY VOLTAGE
 	float PresentBatteryVoltage;
 	float UpdateAvgVolt;
 	PresentBatteryVoltage = readBatteryVoltage(); //i think this function converts analog to digital
@@ -195,7 +221,7 @@ void main_WhileLoop(void)
 		// Setup to sleep
 		prepareToSleepTasks();
 
-		/* Enter Sleep Mode - Set to wake from LPTim IRQ */
+		Enter Sleep Mode - Set to wake from LPTim IRQ
 		HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 		//HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 
@@ -207,7 +233,7 @@ void main_WhileLoop(void)
 	displayCaution();
 #endif
 
-} // END OF FUNCTION init_WhileLoop
+} // END OF FUNCTION init_WhileLoop */
 
 
 

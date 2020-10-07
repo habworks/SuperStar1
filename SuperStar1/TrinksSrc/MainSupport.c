@@ -146,7 +146,11 @@ void main_Init(void)
 * **************************************************************************************************** */
 void main_WhileLoop(void)
 {
+		sayHi();
 		startUpRoutine();
+		miliSecondDelay(25);
+		turnOffSevenSeg();
+
 
 		//READ BATTERY VOLTAGE
 		float PresentBatteryVoltage;

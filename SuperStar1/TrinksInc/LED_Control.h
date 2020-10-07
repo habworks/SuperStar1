@@ -109,7 +109,10 @@ void displayStop (void);
 void displayCaution (void);
 void realDistance (float);
 void startUpRoutine(void);
+void startUpRoutineReverse(void);
 void ledOnPlacement(uint16_t RedLedByte, uint16_t GreenLedByte, uint16_t YellowLedByte);
+void sayHi(void);
+void turnOffSevenSeg(void);
 
 #endif
 /* need to test all LED for BOTH COLORS RED AND GREEN

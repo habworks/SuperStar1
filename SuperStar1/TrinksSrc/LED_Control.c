@@ -6,6 +6,7 @@
 #include "Timers.h"
 
 
+
 /***********************************************************************************************************
 * @brief Yellow LEDs ON and OFF
 *
@@ -50,7 +51,7 @@ void offYellowLED_2 (void)
 ///////////////////////////////////
 
 //YELLOW LED 3 ON AND OFF
-void onYelllowLED_3 (void)
+void onYellowLED_3 (void)
 {
 	ON_RLED3();
 	ON_GLED3();
@@ -64,7 +65,7 @@ void offYellowLED_3 (void)
 ///////////////////////////////////
 
 //YELLOW LED 4 ON AND OFF
-void onYelllowLED_4 (void)
+void onYellowLED_4 (void)
 {
 	ON_RLED4();
 	ON_GLED4();
@@ -78,7 +79,7 @@ void offYellowLED_4 (void)
 ///////////////////////////////////
 
 //YELLOW LED 5 ON AND OFF
-void onYelllowLED_5 (void)
+void onYellowLED_5 (void)
 {
 	ON_RLED5();
 	ON_GLED5();
@@ -92,10 +93,10 @@ void offYellowLED_5 (void)
 ///////////////////////////////////
 
 //YELLOW LED 6 ON AND OFF
-void onYelllowLED_6 (void)
+void onYellowLED_6 (void)
 {
-	ON_RLED3();
-	ON_GLED3();
+	ON_RLED6();
+	ON_GLED6();
 }
 void offYellowLED_6 (void)
 {
@@ -106,7 +107,7 @@ void offYellowLED_6 (void)
 ///////////////////////////////////
 
 //YELLOW LED 7 ON AND OFF
-void onYelllowLED_7 (void)
+void onYellowLED_7 (void)
 {
 	ON_RLED7();
 	ON_GLED7();
@@ -120,7 +121,7 @@ void offYellowLED_7 (void)
 ///////////////////////////////////
 
 //YELLOW LED 8 ON AND OFF
-void onYelllowLED_8 (void)
+void onYellowLED_8 (void)
 {
 	ON_RLED8();
 	ON_GLED8();
@@ -131,6 +132,7 @@ void offYellowLED_8 (void)
 	OFF_GLED8();
 }
 // END OF yellowLEDs_ONandOFF
+
 
 
 /***********************************************************************************************************
@@ -237,6 +239,29 @@ void segTENTH_OFF (void)
 	OFF_DIG_TENTH_G();
 
 } // END OF segTENTH_OFF
+
+
+
+/***********************************************************************************************************
+* @brief Turn off seven segment
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to turn off all of the segments of the seven segment on BOTH sides.
+*
+* @param none
+* @return none
+*
+* WHY: Make code more efficient by creating a default function that turns off a both displays.
+*
+* STEP 1: Use a
+* **********************************************************************************************************/
+void turnOffSevenSeg (void)
+{
+	segONE_OFF();
+	segTENTH_OFF();
+} //END OF turnOffSevenSeg
 
 
 
@@ -839,10 +864,14 @@ void displayCaution (void)
 * STEP 1: Define the variables for each color LED.
 * STEP 2: Set all the values equal to 1 as a starting point/position that will allow for shifting.
 * STEP 3: Create a for loop so Red will start first and when the conditions are met, then green and yellow will.
-* STEP 4: The for loop will loop 12 times. 12 loops is a full cycle of color change.
-* STEP 5: The GreenByte will not begin its color revolution until the second time the function loops.
-* STEP 6: The YellowByte will not begin until the red has looped four times and the green has looped twice.
+* STEP 4: The GreenByte will not begin its color revolution until the third time the function loops.
+* STEP 5: The YellowByte will not begin until the red has looped five times.
+* STEP 6: Wait so that the changes in color can be distinct.
+* STEP 7: Run a switch statement interrupt so that each color can be displayed for the correct LEDs, then wait again.
+* STEP 8: Turn all LEDS off, the loop is over
+* STEP 9: Repeat in reverse, this time shifting to the right, or decreasing in value
 * **********************************************************************************************************/
+uint32_t wait = 100;
 void startUpRoutine(void)
 {
 	//STEP 1: Define the variables for each color LED and set the values equal to 0 as a starting point/position.
@@ -852,30 +881,92 @@ void startUpRoutine(void)
 	uint16_t YellowByte = 0X01;
 
 
-
 	//STEP 3: Create a for loop so Red will start first and when the conditions are met, then green and yellow will.
-	//STEP 4: The for loop will loop 12 times. 12 loops is a full cycle of color change.
-
-	for (uint16_t LedBitPosition = 0; LedBitPosition < 16; LedBitPosition++)
+	for (uint16_t LedBitPosition = 0; LedBitPosition < 17; LedBitPosition++)
 	{
 		RedByte = RedByte << 1;
-		miliSecondDelay(15);
-		if (RedByte > 0x02)
+		if (RedByte > 0x04)
 		{
-			//STEP 5: The GreenByte will not begin its color revolution until the second time the function loops.
+			//STEP 4: The GreenByte will not begin its color revolution until the third time the function loops.
 			GreenByte = GreenByte << 1;
-			miliSecondDelay(15);
 		}
 		if (RedByte > 0x08)
 		{
-			//STEP 6: The YellowByte will not begin until the red has looped four times and the green has looped twice.
+			//STEP 5: The YellowByte will not begin until the red has looped five times.
 			YellowByte = YellowByte << 1;
-			miliSecondDelay(15);
 		}
+		//STEP 6: Wait so that the changes in color can be distinct.
+		miliSecondDelay(wait);
+		//STEP 7: Run a switch statement interrupt so that each color can be displayed for the correct LEDs, then wait again.
 		ledOnPlacement(RedByte, GreenByte, YellowByte);
+		miliSecondDelay(wait);
 	}
+	//STEP 8: Turn all LEDS off, the loop is over
 	all_LedOFF();
-} //END OF startUpRoutine
+	miliSecondDelay(wait);
+	//STEP 9: Call startUpRoutineReverse
+	startUpRoutineReverse();
+}
+void startUpRoutineReverse(void)
+{
+	uint16_t RedByte = 0X2000;
+	uint16_t GreenByte = 0X2000;
+	uint16_t YellowByte = 0X2000;
+	//STEP 9: Repeat in reverse, this time shifting to the right, or decreasing in value
+	for (uint16_t LedBitPosition = 17; LedBitPosition > 0; LedBitPosition--)
+	{
+		YellowByte = YellowByte >> 1;
+		if (YellowByte < 0x800)
+		{
+
+			GreenByte = GreenByte >> 1;
+		}
+		if (YellowByte < 0x100)
+		{
+
+			RedByte = RedByte >> 1;
+		}
+		miliSecondDelay(wait);
+		ledOnPlacement(RedByte, GreenByte, YellowByte);
+		miliSecondDelay(wait);
+	}
+
+	all_LedOFF();
+} //END OF startUpRoutineReverse
+
+
+
+/***********************************************************************************************************
+* @brief Say Hi
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function is intended to greet the user.
+*
+* @param none
+* @return none
+*
+* WHY: This function is intended to greet the user.
+*
+* STEP 1:
+* STEP 2:
+* STEP 3:
+*
+* **********************************************************************************************************/
+//STEP 10: Say Hi!
+void sayHi(void)
+{
+	turnOffSevenSeg();
+	DIG_ONE_F();
+	DIG_ONE_E();
+	DIG_ONE_G();
+	DIG_ONE_B();
+	DIG_ONE_C();
+
+	DIG_TENTH_C();
+	DIG_TENTH_B();
+} // END OF sayHi
 
 
 
@@ -906,28 +997,44 @@ void ledOnPlacement(uint16_t RedLedByte, uint16_t GreenLedByte, uint16_t YellowL
 	//STEP 2: Red switch statement
 	switch (RedLedByte)
 		{
-		case 0X01: //0000 0000 0000 0001
-			ON_RLED1();			//RED
+		case 0X02:
+			ON_RLED1();					//RED
+			OFF_GLED1();				//FOR REVERSE
 			break;
-		case 0X02: //0000 0000 0000 0010
-			ON_RLED2();			//RED
-		case 0X04: //0000 0000 0000 0100
-			ON_RLED3();			//RED
+
+		case 0X04:
+			ON_RLED2();					//RED
+			OFF_GLED2();				//FOR REVERSE
 			break;
-		case 0X08: //0000 0000 0000 1000
-			ON_RLED4();			//RED
+
+		case 0X08:
+			ON_RLED3();					//RED
+			OFF_GLED3();				//FOR REVERSE
 			break;
-		case 0X10: //0000 0000 0001 0000
-			ON_RLED5();			//RED
+
+		case 0X10:
+			ON_RLED4();					//RED
+			OFF_GLED4();				//FOR REVERSE
 			break;
-		case 0X20: //0000 0000 0010 0000
-			ON_RLED6();			//RED
+
+		case 0X20:
+			ON_RLED5();					//RED
+			OFF_GLED5();				//FOR REVERSE
 			break;
-		case 0X40: //0000 0000 0100 0000
-			ON_RLED7();			//RED
+
+		case 0X40:
+			ON_RLED6();					//RED
+			OFF_GLED6();				//FOR REVERSE
 			break;
-		case 0X80: //0000 0000 1000 0000
-			ON_RLED8();			//RED
+
+		case 0X80:
+			ON_RLED7();					//RED
+			OFF_GLED7();				//FOR REVERSE
+			break;
+
+		case 0X100:
+			ON_RLED8();					//RED
+			OFF_GLED8();				//FOR REVERSE
 			break;
 		}
 
@@ -935,67 +1042,81 @@ void ledOnPlacement(uint16_t RedLedByte, uint16_t GreenLedByte, uint16_t YellowL
 	//STEP 3: Green switch statement
 	switch (GreenLedByte)
 		{
-		case 0X04: //0000 0000 0000 0100
-			OFF_RLED1();		//FOR GREEN
+		case 0X08:
+			OFF_RLED1();				//FOR GREEN
 			ON_GLED1();
 			break;
-		case 0X08: //0000 0000 0000 1000
-			OFF_RLED2();		//FOR GREEN
+
+		case 0X10:
+			OFF_RLED2();				//FOR GREEN
 			ON_GLED2();
 			break;
-		case 0X10: //0000 0000 0001 0000
-			OFF_RLED3();		//FOR GREEN
+
+		case 0X20:
+			OFF_RLED3();				//FOR GREEN
 			ON_GLED3();
 			break;
-		case 0X20: //0000 0000 0010 0000
-			OFF_RLED4();		//FOR GREEN
+
+		case 0X40:
+			OFF_RLED4();				//FOR GREEN
 			ON_GLED4();
 			break;
-		case 0X40: //0000 0000 0100 0000
-			OFF_RLED5();		//FOR GREEN
+
+		case 0X80:
+			OFF_RLED5();				//FOR GREEN
 			ON_GLED5();
 			break;
-		case 0X80: //0000 0000 1000 0000
-			OFF_RLED6();		//FOR GREEN
+
+		case 0X100:
+			OFF_RLED6();				//FOR GREEN
 			ON_GLED6();
 			break;
-		case 0X100: //0000 0001 0000 0000
-			OFF_RLED7();		//FOR GREEN
+
+		case 0X200:
+			OFF_RLED7();				//FOR GREEN
 			ON_GLED7();
 			break;
-		case 0X200: //0000 0010 0000 0000
-			OFF_RLED8();		//FOR GREEN
+
+		case 0X400:
+			OFF_RLED8();				//FOR GREEN
 			ON_GLED8();
 			break;
 		}
 
 
-		//STEP 4: Yellow switch statement
+	//STEP 4: Yellow switch statement
 	switch (YellowLedByte)
 		{
-		case 0X10: //0000 0000 0001 0000
-			ON_RLED1();			//FOR YELLOW
+		case 0X20:
+			onYellowLED_1();			//FOR YELLOW
 			break;
-		case 0X20: //0000 0000 0010 0000
-			ON_RLED2();			//FOR YELLOW
+
+		case 0X40:
+			onYellowLED_2();			//FOR YELLOW
 			break;
-		case 0X40: //0000 0000 0100 0000
-			ON_RLED3();			//FOR YELLOW
+
+		case 0X80:
+			onYellowLED_3();			//FOR YELLOW
 			break;
-		case 0X80: //0000 0000 1000 0000
-			ON_RLED4();			//FOR YELLOW
+
+		case 0X100:
+			onYellowLED_4();			//FOR YELLOW
 			break;
-		case 0X100: //0000 0001 0000 0000
-			ON_RLED5();			//FOR YELLOW
+
+		case 0X200:
+			onYellowLED_5();			//FOR YELLOW
 			break;
-		case 0X200: //0000 0010 0000 0000
-			ON_RLED6();			//FOR YELLOW
+
+		case 0X400:
+			onYellowLED_6();			//FOR YELLOW
 			break;
-		case 0X400: //0000 0100 0000 0000
-			ON_RLED7();			//FOR YELLOW
+
+		case 0X800:
+			onYellowLED_7();			//FOR YELLOW
 			break;
-		case 0X800: //0000 1000 0000 0000
-			ON_RLED8();			//FOR YELLOW
+
+		case 0X1000:
+			onYellowLED_8();			//FOR YELLOW
 			break;
 		}
 

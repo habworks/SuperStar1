@@ -89,7 +89,7 @@ void prepareToSleepTasks(void)
 	all_LedOFF();
 	segONE_OFF();
 	segTENTH_OFF();
-	POWER_OFF_SESNOR_DP();
+	POWER_OFF_SENSOR_DP();
 
 	// STEP :
 	// Set timers to low power

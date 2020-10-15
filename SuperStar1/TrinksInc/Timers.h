@@ -3,7 +3,7 @@
  * @brief			This Header file used to support uC Peripheral: Low Power Timer (LPTIM), Timer2 (TIM2),  Timer21 (TIM21)
  * ****************************************************************************************************
  * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/22/20 \n
  * Last Edit Date:  8/7/20 \n

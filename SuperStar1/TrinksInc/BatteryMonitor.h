@@ -3,7 +3,7 @@
  * @brief			This Header file used to support uC Peripheral: Low Power Timer (LPTIM), Timer2 (TIM2),  Timer21 (TIM21)
  * ****************************************************************************************************
  * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/22/20 \n
  * Last Edit Date:  8/7/20 \n
@@ -37,11 +37,12 @@
 #define DEFAULT_VOLTAGE_DIVIDER_RATIO	(float)(VOLTAGE_DIVIDER_RA/(VOLTAGE_DIVIDER_RA + VOLTAGE_DIVIDER_RB))
 #define DEFAULT_VOLTAGE_VDDA_REFERENCE	3.300
 #define BATTERY_NOMINAL_VOLTAGE			9.000
-#define VOLT_ARRAY_SIZE				5
-
+#define VOLT_ARRAY_SIZE					20
+#define BATTERY_LOW_VOLATGE_THRESHOLD 	8.0
 
 // FUNCTION PROTOTYPES
 float readBatteryVoltage(void);
 float rollingAverageBatVolt (float NowVoltage);
+void errorCheck (float AverageVoltage);
 
 #endif

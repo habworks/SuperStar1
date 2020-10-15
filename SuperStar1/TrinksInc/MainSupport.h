@@ -3,7 +3,7 @@
  * @brief			This is the Header file used to support MainSupport.C
  * ****************************************************************************************************
  * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/19/20 \n
  * Last Edit Date:  8/3/20 \n
@@ -97,6 +97,16 @@ typedef struct
 	volatile uint32_t		TickCount;
 }Type_Calibrate_LPTCLK;
 
+typedef enum
+{
+	E0_NoError = 0,  		// NO ERROR CODE, display nothing
+	E1_NoZero = 1, 			// ZERO SWITCH NOT SET
+	E2_LowBat = 2, 			// LOW BATTERY, (build to order…. User may use outlet power form wall) (then no need for ADC?)
+	E3_NoEchoHigh = 3, 		// NO ECHO….. An error we shouldn’t get… for testing
+	E4_NoEchoLow = 4, 		// ECHO NEVER LOW… an error we shouldn’t get…. For testing
+}Typedef_ErrorCodes;
+
+
 typedef struct
 {
 	volatile bool_t			TimeToSleep;
@@ -109,12 +119,16 @@ typedef struct
 	float					ADC_VDDA_Vref;			// Voltage Reference of ADC VDDA Voltage Reference
 	Type_InitTest			InitTest;
 	Type_Calibrate_LPTCLK	Calibrate_LPTCLK;
+	Typedef_ErrorCodes		ErrorCodeEnum;
 }Type_SuperStarStatus;
+
+
 
 
 // FUNCTION PROTOTYPES
 void main_Init(void);
 void main_WhileLoop(void);
 float distanceToTarget (void);
+void intDefaultState (void);
 
 #endif

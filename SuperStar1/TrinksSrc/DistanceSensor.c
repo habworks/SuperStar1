@@ -212,7 +212,7 @@ float distanceToTarget (void)
 	TimeToTarget = ((SuperStarStatus.RoundTripTicksToTarget * TICKS_TO_SECONDS)/ 2);
 
 	// STEP 8: Turn off power to the sensor
-	POWER_OFF_SESNOR_DP();
+	POWER_OFF_SENSOR_DP();
 
 	//STEP 9: Calculate distance to target in feet: Formula is Distance = Speed x Time.  Use speed of sound in ft/s
 	float DistanceToTarget;

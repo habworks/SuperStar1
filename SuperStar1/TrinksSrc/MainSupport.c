@@ -3,7 +3,7 @@
  * @brief			This is the Source file used to support the main.c CubeMx generated file
  * ****************************************************************************************************
  * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/19/20 \n
  * Last Edit Date:  8/7/20 \n
@@ -46,6 +46,38 @@ volatile Type_SuperStarStatus SuperStarStatus;
 
 
 
+/** ****************************************************************************************************
+* @brief intDefaultState
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note This function sets the default state of all members of the structure
+*
+* @param void
+* @return void
+*
+* WHY: This function allows all members of all structures to have a starting point before the application
+* begins in main_Init
+*
+* STEP 1: Set all members to their respective zeros.
+* **************************************************************************************************** */
+void initDefaultState (void)
+{
+	//STEP 1: Set all members to their respective zeros.
+	SuperStarStatus.TimeToSleep = false;
+	SuperStarStatus.RoundTripTicksToTarget = 0;
+	SuperStarStatus.DistanceMeasureTimeOut = 0;
+	SuperStarStatus.MiliSecondCounter = 0;
+	SuperStarStatus.LED_DutyCylcePercent = 0.0;
+	SuperStarStatus.ZeroOffset = 0.0;
+	SuperStarStatus.ADC_DividerRatio = 0.0;
+	SuperStarStatus.ADC_VDDA_Vref = 0.0;
+	SuperStarStatus.InitTest = false;
+	SuperStarStatus.Calibrate_LPTCLK.SetToCalibrate = false;
+	SuperStarStatus.ErrorCodeEnum = 0;
+} //END OF initDefaultState
+
+
 
 /** ****************************************************************************************************
 * @brief This function will perform the initialization routines necessary for SuperStar. It will include
@@ -53,7 +85,7 @@ volatile Type_SuperStarStatus SuperStarStatus;
 * This function should be placed within function main between comments:  USER CODE BEGIN 2 and USER CODE END 2
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note To be placed in the main.c
 * @note Avoids excessive edit of main.c when using STM32CubeMX
@@ -70,9 +102,7 @@ void main_Init(void)
 
 	// STEP :
 	// Init SuperStar Status
-	// TODO: Trinks write a function to set all SuperStar Status members to zero or default state / replace with below
-	SuperStarStatus.TimeToSleep = false;
-	SuperStarStatus.Calibrate_LPTCLK.SetToCalibrate = false;
+	intDefaultState ();
 
 	// STEP :
 	// Setup Load calibration if defined and set Flash memory
@@ -133,7 +163,7 @@ void main_Init(void)
 * This function should be placed within function main between comments:  USER CODE BEGIN WHILE and USER CODE END WHILE
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note To be placed in the main.c
 * @note Avoids excessive edit of main.c when using STM32CubeMX
@@ -146,34 +176,53 @@ void main_Init(void)
 * **************************************************************************************************** */
 void main_WhileLoop(void)
 {
+		//this needs to go somewhere else// this should only occur once per park.
 		sayHi();
 		startUpRoutine();
 		miliSecondDelay(25);
 		turnOffSevenSeg();
 
 
-		//READ BATTERY VOLTAGE
+		//CHECK for error condition
+		errorCheck(SuperStarStatus.ErrorCodeEnum);
+
+
+		// REed bat volt
 		float PresentBatteryVoltage;
 		float UpdateAvgVoltage;
 		PresentBatteryVoltage = readBatteryVoltage();
-		rollingAverageBatVolt(UpdateAvgVoltage);
+		// Filter bat V
+		UpdateAvgVoltage = rollingAverageBatVolt (PresentBatteryVoltage);
+		//check for low bat
+		errorCheck (UpdateAvgVoltage);
+
+
+
 
 		//GET DIST
 		float PresentDistanceToTarget;
 		float FilterDistanceToTarget;
-		POWER_OFF_SESNOR_DP();
+		POWER_OFF_SENSOR_DP();
 		PresentDistanceToTarget = distanceToTarget();
 		FilterDistanceToTarget = rollingAverageTargetDistance(PresentDistanceToTarget);
 
+
+
+
+
 		//DISPLAY
 		realDistance(FilterDistanceToTarget);
+
+
+
+
 
 		//SLEEP
 		float PresentDistance;
 		miliSecondDelay(15); //experimental value for now
 				if((PresentDistance = FilterDistanceToTarget))
 				{
-					POWER_OFF_SESNOR_DP();
+					POWER_OFF_SENSOR_DP();
 				}
 		}
 

@@ -616,7 +616,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 
 	//STEP 1:
 	//Use if statement. if Error Code is greater than or equal to 7, still display E6.
-	if (ErrorCode >= 7)
+	if (ErrorCode >= 5)
 	{
 		// Display E6
 		DIG_ONE_A();
@@ -640,7 +640,8 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 	the designated case.*/
 	switch(ErrorCode)
 	{
-	case 0:
+	case E0_NoError :
+		/*
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -652,8 +653,10 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_D();
 		DIG_TENTH_E();
 		DIG_TENTH_F();
+		*/
+
 		break;
-	case 1:
+	case E1_NoZero :
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -662,7 +665,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_B();
 		DIG_TENTH_C();
 		break;
-	case 2:
+	case E2_LowBat :
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -674,7 +677,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_E();
 		DIG_TENTH_D();
 		break;
-	case 3:
+	case E3_NoEchoHigh :
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -686,7 +689,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_C();
 		DIG_TENTH_D();
 		break;
-	case 4:
+	case E4_NoEchoLow :
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -697,7 +700,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_B();
 		DIG_TENTH_C();
 		break;
-	case 5:
+	/*case 5:
 		DIG_ONE_A();
 		DIG_ONE_D();
 		DIG_ONE_E();
@@ -721,7 +724,7 @@ bool_t displayErrorCode(uint8_t ErrorCode)
 		DIG_TENTH_C();
 		DIG_TENTH_D();
 		DIG_TENTH_E();
-		break;
+		break; */
 	default:
 		segONE_OFF();
 		segTENTH_OFF();

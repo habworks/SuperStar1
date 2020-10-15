@@ -3,6 +3,7 @@
 #define _LED_CONTROL_H_
 #include "MainSupport.h"
 #include "main.h"
+#include "BatteryMonitor.h"
 
 // MACROS
 #define ON_RLED1()				HAL_GPIO_WritePin(MC_RLED1_GPIO_Port, MC_RLED1_Pin, GPIO_PIN_SET);
@@ -71,7 +72,7 @@
 #define OFF_DIG_ONE_G()			HAL_GPIO_WritePin(MC_SEG_10G1_GPIO_Port, MC_SEG_10G1_Pin, GPIO_PIN_RESET);
 
 #define POWER_ON_SENSOR_DP()	HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_SET);
-#define POWER_OFF_SESNOR_DP()	HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_RESET);  // TODO: Trinks You spell this wrong
+#define POWER_OFF_SENSOR_DP()	HAL_GPIO_WritePin(Sens_PWR_GPIO_Port, Sens_PWR_Pin, GPIO_PIN_RESET);  // TODO: Trinks You spell this wrong
 
 #define DIG_TENTH_A()			HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_SET);
 #define OFF_DIG_TENTH_A()		HAL_GPIO_WritePin(MC_SEG_7A2_GPIO_Port, MC_SEG_7A2_Pin, GPIO_PIN_RESET);

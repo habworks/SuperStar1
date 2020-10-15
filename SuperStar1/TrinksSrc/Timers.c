@@ -3,7 +3,7 @@
  * @brief			This Source file used to support uC Peripheral: Low Power Timer (LPTIM), Timer2 (TIM2),  Timer21 (TIM21)
  * ****************************************************************************************************
  * @author			Hab S. Collector \n
- * Last Edited By:	Hab S. Collector \n
+ * Last Edited By:	Trinkie H. Collector \n
  *
  * @date			7/22/20 \n
  * Last Edit Date:  8/7/20 \n
@@ -42,7 +42,7 @@ extern Type_SuperStarStatus SuperStarStatus;
 * seconds
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note To be placed in the main.c
 * @note Avoids excessive edit of main.c when using STM32CubeMX
@@ -99,7 +99,7 @@ void callbackLPTIM1_IRQ(void)
 * Not used
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie S. Collector \n
 *
 * @note The clock rate is not set here - look in cube MX
 * @note The frequency of PWM becomes timer clock rate x 10
@@ -177,7 +177,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *TimerInIRQ)
 * @brief This is the call back function of the SysTick IRQ.  It is used here as a generic timer
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note This function is prototyped weak elsewhere
 * @note This is the SysTick timer
@@ -210,7 +210,7 @@ void HAL_IncTick(void)
 * until that amount of time has passed.
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note The clock rate of TIM21 must be set to 1KHz (T = 1ms)
 * @note Status var is updated in IRQ
@@ -240,7 +240,7 @@ void miliSecondDelay(const uint32_t DelayInMiliSeconds)
 * HAL timer - the HAL timer is used as the time base reference.
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
 *
 * @note The LPTIM must be init before calling this function - this function will stop the LPTIM if running
 * @note The clock rate of LPTIM is 37KHz and it has a divider

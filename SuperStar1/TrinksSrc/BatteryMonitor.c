@@ -3,6 +3,7 @@
 #include "BatteryMonitor.h"
 #include "MainSupport.h"
 #include "adc.h"
+#include "LED_Control.h"
 
 extern Type_SuperStarStatus SuperStarStatus;
 
@@ -11,7 +12,7 @@ extern Type_SuperStarStatus SuperStarStatus;
 * @brief Read the battery voltage
 *
 * @author 			Hab S. Collector \n
-* Last Edited By:  	Hab S. Collector \n
+* Last Edited By:  	Trinkie  H. Collector \n
 *
 * @note This function is intended for general use within the application
 * @note No other pre or post function calls are necessary other than the initial ADC init
@@ -87,29 +88,66 @@ float readBatteryVoltage(void)
 float rollingAverageBatVolt (float NowVoltage)
 {
 	static float VoltArray[VOLT_ARRAY_SIZE] = {0};
-		static uint8_t StoredIndex = 0;
-		float AverageVoltage;
-		float Sum_OfVoltage = 0;
+	static uint8_t StoredIndex = 0;
+	float AverageVoltage;
+	float Sum_OfVoltage = 0;
 
-		//STEP 1: Store a new value.
-		VoltArray[StoredIndex] = NowVoltage;
+	//STEP 1: Store a new value.
+	VoltArray[StoredIndex] = NowVoltage;
 
-		//STEP 2: Calculate the sum of the array.
-		for(uint8_t Index = 0; Index < VOLT_ARRAY_SIZE; Index++)
+	//STEP 2: Calculate the sum of the array.
+	for(uint8_t Index = 0; Index < VOLT_ARRAY_SIZE; Index++)
 		{
 			Sum_OfVoltage = Sum_OfVoltage + VoltArray[Index];
 		}
 
-		//STEP 3: Calculate the average.
-		AverageVoltage = Sum_OfVoltage / VOLT_ARRAY_SIZE;
+	//STEP 3: Calculate the average.
+	AverageVoltage = Sum_OfVoltage / VOLT_ARRAY_SIZE;
 
-		//STEP 4: Increment StoredIndex and test.
-		StoredIndex++;
-		if(StoredIndex > VOLT_ARRAY_SIZE - 1)
+	//STEP 4: Increment StoredIndex and test.
+	StoredIndex++;
+	if(StoredIndex > VOLT_ARRAY_SIZE - 1)
 		{
 			StoredIndex = 0;
 		}
 
-		//STEP 5: Return the average.
-		return (AverageVoltage);
+	//STEP 5: Return the average.
+	return (AverageVoltage);
 }
+
+//IF battery voltage is greater (>)than threshold THEN EO_NoError
+//(ELSE) IF battery voltage is NOT greater than threshold OR EQUAL TO (<=) THEN E2_LowBat
+// macro is BATTERY_LOW_VOLATGE_THRESHOLD it is set at 8
+/***********************************************************************************************************
+* @brief errorCheck
+*
+* @author 			Trinkie H. Collector \n
+* Last Edited By:  	Trinkie H. Collector \n
+*
+* @note IF battery voltage is greater (>)than threshold THEN EO_NoError
+* @note IF battery voltage is NOT greater than threshold OR EQUAL TO (<=) THEN E2_LowBat
+*
+* @param NowVolatge
+* @return AverageVoltage
+*
+* WHY: Allow user to visually see when they need to replay their batter
+*
+* STEP 1: Store a new value
+* STEP 2: Calculate the sum of the array.
+* STEP 3: Calculate the average.
+* STEP 4: Increment StoredIndex and test.
+* STEP 5: Return the average.
+* **********************************************************************************************************/
+void errorCheck (float AverageVolatge)
+{
+	if (AverageVoltage > BATTERY_LOW_VOLATGE_THRESHOLD )
+		{
+			SuperStarStatus.ErrorCodeEnum = E0_NoError ;
+
+		}
+
+	if (AverageVoltage <= BATTERY_LOW_VOLATGE_THRESHOLD )
+		{
+			SuperStarStatus.ErrorCodeEnum = E2_LowBat ;
+		}
+} //END OF errorCheck
